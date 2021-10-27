@@ -9,7 +9,9 @@ def index(request):
     soup_data = Soup(req, 'html.parser')
     movies = soup_data.findAll('div', {'class' : 'ipc-poster ipc-poster--baseAlt ipc-poster--dynamic-width Poster__CelPoster-sc-6zpm25-0 kPdBKI celwidget ipc-sub-grid-item ipc-sub-grid-item--span-2'})
     movie_id = 2382320
-    image = movies[0].div.img['srcset'].split(',')[-4] + ",0,285,422_.jpg"
+    # image = movies[0].div.img['srcset'].split(',')[-4] + ",0,285,422_.jpg"
+    image = movies[0].div.img['srcset'].split(',')[-4]
+
     context = {
         'image': image,
         'movie_id': movie_id
