@@ -2,9 +2,17 @@
 
 {% block content %}
     <div class="alert alert-success" role="alert">
-        <h4 class="alert-heading">{{ movie_id }} 페이지 입니다!! !!!!.</h4>
-        <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+        <h3 class="alert-heading">{{ movie_title }}</h3>
+        <a href="{% url 'movie' movie_id %}"><img src="{{ image }}" style="width: 300px; height:auto;" /></a>
+        <video src="https://imdb-video.media-imdb.com/vi3903767321/1434659607842-pgv4ql-1633039814981.mp4?Expires=1635399310&Signature=Fzum1mZpFEGAeLRKigGYHVeWx~gkMcIr0X2H9wVzTby5DIcIUQt2qdXOhoBTZ3ck0~hJEAyUHSiTNLbH3Yqi6XLSjWMKRpyCJHSEqfldobIoH2Y1bv8hzReNEVHVMBLYX6gfUJv9HawltBWhTNtKKIPizlUqSSqHfLWmdTKZEUmgFaJpg3gjZkNMbvc7a0hb0tnyBu9hSGCL5RCqd~~tFupAAMGIKt763UPZQEiow7VFU1ciyPD2vXFm9ZUoanrU57UGCvofwUq5c1hDj3EjdazA-vWxsbv~Cv5f0tS8nsClSOvGHg7RyGdswJsfzYi2k~laD4GQZ93l4T0h4aoHEg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" controls>
+        </video>
+        <!-- <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
         <hr>
-        <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+        <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> -->
+
+
+                
+
+
     </div>
 {% endblock %}
