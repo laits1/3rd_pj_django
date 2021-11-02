@@ -1,0 +1,11 @@
+[
+    {
+        "model": "accounts.User",
+        "pk": 1,
+        "fields": {
+            "username" : "test",
+            "like_movie" : "",
+            "password": "pbkdf2_sha256$260000$P9dbbwL85AEqmB77ji62u2$ExrxoEubZm8vjrg6DjwnyJ7JCs2k+Th1oLozYbOiSFk="
+        }
+    }
+]

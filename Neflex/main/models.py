@@ -13,7 +13,7 @@ class Links(models.Model):
 
 class Ratings(models.Model):
     imdb_movie_Id = models.ForeignKey(Movies, on_delete=models.CASCADE)
-    user_Id = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    user_Id = models.IntegerField()
     rating = models.FloatField()
 
 class Genome_Tags(models.Model):
@@ -30,7 +30,7 @@ class Review(models.Model):
 
 class Tags(models.Model):
     imdb_movie_Id = models.ForeignKey(Movies, on_delete=models.CASCADE)
-    user_Id = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    user_Id = models.IntegerField()
     tag = models.CharField(max_length=100)
 
 class Director(models.Model):
@@ -39,4 +39,4 @@ class Director(models.Model):
 
 class Actor(models.Model):
     Actor_name = models.CharField(max_length=100)
-    movies = models.ManyToManyField
+    movies = models.ManyToManyField(Movies)
