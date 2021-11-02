@@ -14,7 +14,7 @@ class Links(models.Model):
 class Ratings(models.Model):
     imdb_movie_Id = models.ForeignKey(Movies, on_delete=models.CASCADE)
     user_Id = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
-    rating = models.IntegerField()
+    rating = models.FloatField()
 
 class Genome_Tags(models.Model):
     tag = models.CharField(max_length=100)

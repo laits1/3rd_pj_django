@@ -3,10 +3,14 @@ from requests import get
 from bs4 import BeautifulSoup as Soup
 import pandas as pd
 import os
+from django.db.models import Count
+import pickle
 
 # Create your views here.
 def index(request):
+  
     
+
     url = get('https://www.imdb.com/title/tt2382320/')
     req = url.text
     soup_data = Soup(req, 'html.parser')
@@ -15,7 +19,7 @@ def index(request):
     # image = movies[0].div.img['srcset'].split(',')[-4] + ",0,285,422_.jpg"
     image = movies[0].div.img['srcset'].split(',')[-4]
     
-
+    
     context = {
         'image': image,
         'movie_id': movie_id
