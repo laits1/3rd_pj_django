@@ -4,25 +4,17 @@ from bs4 import BeautifulSoup as Soup
 import pandas as pd
 from django.db.models import Count
 import requests
-from .models import Movies
+from .models import Movies, Ratings
 from django.contrib.auth import get_user_model
+import userfuc
 
 # Create your views here.
 def select(request):
-    url = get('https://www.imdb.com/title/tt2382320/')
-    req = url.text
-    soup_data = Soup(req, 'html.parser')
-    movies = soup_data.findAll('div', {'class' : 'ipc-poster ipc-poster--baseAlt ipc-poster--dynamic-width Poster__CelPoster-sc-6zpm25-0 kPdBKI celwidget ipc-sub-grid-item ipc-sub-grid-item--span-2'})
-    movie_id = 2382320
-    # image = movies[0].div.img['srcset'].split(',')[-4] + ",0,285,422_.jpg"
-    image = movies[0].div.img['srcset'].split(',')[-4]
+
+    image = userfuc.image()
+
+
     
-
-
-    user = get_user_model().objects.get(pk=1)
-    print(user.like_movie)
-    movies = Movies.objects.all()[:6]
-    # print(movies)
 
     context = {
         'image': image,
@@ -35,7 +27,7 @@ def index(request):
     if request.method == 'POST':
         selected = request.POST.getlist('selected')
         user = request.user
-        user.like_movie = ','.join(selected)
+        # user.like_movie = ','.join(selected)
         user.save()
         
         return render(request, "main/index.html")
@@ -53,7 +45,7 @@ def index(request):
 
 
         user = get_user_model().objects.get(pk=1)
-        print(user.like_movie)
+        # print(user.like_movie)
         movies = Movies.objects.all()[:6]
         # print(movies)
 
