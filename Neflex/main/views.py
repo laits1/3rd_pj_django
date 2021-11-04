@@ -6,6 +6,9 @@ from django.db.models import Count
 import requests
 from .models import Movies
 from django.contrib.auth import get_user_model
+# import REC # REC 파이썬 폴더 사용 가능
+
+# REC.REC()
 
 # Create your views here.
 def select(request):
@@ -31,14 +34,14 @@ def select(request):
 
     return render(request, "main/select.html", context)
 
-def index(request):
+def home(request):
     if request.method == 'POST':
         selected = request.POST.getlist('selected')
         user = request.user
         user.like_movie = ','.join(selected)
         user.save()
         
-        return render(request, "main/index.html")
+        return render(request, "main/home.html")
 
 
     else:
@@ -54,7 +57,7 @@ def index(request):
 
         user = get_user_model().objects.get(pk=1)
         print(user.like_movie)
-        movies = Movies.objects.all()[:6]
+        movies = Movies.objects.all()[:8]
         # print(movies)
 
         context = {
@@ -65,7 +68,7 @@ def index(request):
         # movie_id2 = 2382321
         # image2 = movies[0].div.img['srcset'].split(',')[-4]
         
-        return render(request, "main/index.html", context)
+        return render(request, "main/home.html", context)
 
 
 # def about(request):

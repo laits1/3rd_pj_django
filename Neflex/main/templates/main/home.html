@@ -1,0 +1,188 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Ne-Flex</title>
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}" media="screen" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/animation.css' %}" media="screen" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style-portfolio.css' %}">
+        <link rel="stylesheet" href="{% static 'css/picto-foundry-food.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+        <link rel="icon" href="favicon-1.ico" type="{% static 'image/x-icon' %}">
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="row">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Ne-Flex</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav main-nav  clear navbar-right ">
+                            <li><a class="navactive color_animation" href="#top">WELCOME</a></li>
+                            <li><a class="color_animation" href="#ABOUT">ABOUT</a></li>
+                            <li><a class="color_animation" href="#movie_list">Top movies</a></li>
+                            <li><a class="color_animation" href="#movie_list">Popular</a></li>
+                            <li><a class="color_animation" href="#movie_list">Coming Soon</a></li>
+                            <li><a class="color_animation" href="#LogIn">LogIn</a></li>
+
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div>
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <div id="top" class="starter_container bg stagger-wrapper">
+            <div class="follow_container stagger-item">
+                <div class="col-md-6 col-md-offset-3 stagger-item">
+                    <h2 class="top-title stagger-item"> Ne-Flex</h2>
+                    <h2 class="white second-title stagger-item">" Find out your favorite movies! "</h2>
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ About Us ============= -->
+
+        <section id="ABOUT" class="description_content">
+            <div class="text-content container stagger-wrapper">
+                <div class="mt-5 col-md-6 stagger-item">
+                    <h1>About us</h1>
+                    <p class="mt-5 desc-text stagger-item"> Welcome to Your-Flex! We are to find your favorite movies. </p>
+                </div>
+                <div class="col-md-6">
+                    <div class="img-section stagger-item" style="height: 410px";>
+                       <img src="" width="240" height="200">
+                       <img src="" width="240" height="200">
+                       <div class="img-section-space"></div>
+                       <img src=""  width="240" height="200">
+                       <img src=""  width="240" height="200">
+                   </div>
+                </div>
+            </div>
+        </section>
+
+<div class="w3-row-padding" style="margin:0 -16px">
+  <div class="w3-col m4">
+    <img src="img_snow.jpg" alt="Snow" style="width:100%">
+  </div>
+  <div class="w3-col m4">
+    <img src="img_forest.jpg" alt="Forest" style="width:100%">
+  </div>
+  <div class="w3-col m4">
+    <img src="img_mountains.jpg" alt="Mountains" style="width:100%">
+  </div>
+</div>
+       <!-- ============ Top movies  ============= -->
+        <section id ="movie_list" class="description_content">
+             <div class="movie_list background_content stagger-wrapper">
+                <h1>Top movies</h1>
+                    <div class="text-content container stagger-item">
+                        <div class="container stagger-item">
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                                <div class="img-section-space"></div>
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                        </div>
+                    </div>
+             </div>
+        </section>
+
+
+        <!-- ============ Coming Soon  ============= -->
+        <section id ="Coming_Soon" class="description_content">
+            <div  class="movie_list background_content stagger-wrapper">
+                <h1>Coming Soon</h1>
+                <div class="text-content container stagger-item">
+                    <div class="container stagger-item">
+                        <div class="row stagger-item">
+                            <div class="column stagger-item">
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                                <div class="img-section-space"></div>
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <!-- ============ Popular  ============= -->
+        <section id ="Popular" class="description_content">
+            <div  class="movie_list background_content stagger-wrapper">
+                <h1>Popular movies!</h1>
+                <div class="text-content container stagger-item">
+                    <div class="container stagger-item">
+                        <div class="row stagger-item">
+                            <div class="column stagger-item">
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                                <div class="img-section-space"></div>
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+
+        <!-- ============ LogIn  ============= -->
+        <section id="LogIn" class="description_content">
+            <h1>Load LogIn Page</h1>
+        </section>
+
+        <!-- ============ Footer Section  ============= -->
+
+        <footer class="sub_footer">
+            <div class="container">
+                <div class="col-md-4"><p class="sub-footer-text text-center">&copy; Ne-Flex</p></div>
+                <div class="col-md-4"><p class="sub-footer-text text-center">Back to <a href="#top">TOP</a></p>
+                </div>
+                <div class="col-md-4"><p class="sub-footer-text text-center">Built With Care By <a href="#" target="_blank">Us</a></p></div>
+            </div>
+        </footer>
+
+
+        <script type="text/javascript" src="{% static 'js/jquery-1.10.2.min.js' %}"> </script>
+        <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}" ></script>
+        <script type="text/javascript" src="{% static 'js/jquery-1.10.2.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/jquery.mixitup.min.js' %}" ></script>
+        <script type="text/javascript" src="{% static 'js/main.js' %}" ></script>
+
+    </body>
+</html>
