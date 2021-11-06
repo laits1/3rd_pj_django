@@ -21,7 +21,7 @@
 
     <body>
 
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="height: 70px;padding-top: 50px;">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="row">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -54,9 +54,9 @@
         <div id="top" class="starter_container bg stagger-wrapper">
             <div class="follow_container stagger-item">
                 <div class="col-md-6 col-md-offset-3 stagger-item">
-                    <h2 class="top-title stagger-item" style="padding-bottom: 0px; padding-top: 0px; margin-top: -150px;">
-                        <img src="{% static 'images/navbar_logo_B.jpg' %}" width="450" height="180"></h2>
+                    <h2 class="top-title stagger-item"> Ne-Flex</h2>
                     <h2 class="white second-title stagger-item">" Find out your favorite movies! "</h2>
+                    <hr>
                 </div>
             </div>
         </div>
@@ -64,10 +64,10 @@
         <!-- ============ About Us ============= -->
 
         <section id="ABOUT" class="description_content">
-            <div class="text-content about_us_photo stagger-wrapper" style="height: 802px;">
+            <div class="text-content container stagger-wrapper">
                 <div class="mt-5 col-md-6 stagger-item">
-                    <h1 style="padding-right: 0px; padding-left: 55px; margin-left: 250px;">About us</h1>
-                    <p class="mt-5 desc-text stagger-item" style="margin-left: 250px;"> Welcome to Your-Flex! We are to find your favorite movies. </p>
+                    <h1>About us</h1>
+                    <p class="mt-5 desc-text stagger-item"> Welcome to Your-Flex! We are to find your favorite movies. </p>
                 </div>
                 <div class="col-md-6">
                     <div class="img-section stagger-item" style="height: 410px";>
@@ -81,21 +81,27 @@
             </div>
         </section>
 
+<div class="w3-row-padding" style="margin:0 -16px">
+  <div class="w3-col m4">
+    <img src="img_snow.jpg" alt="Snow" style="width:100%">
+  </div>
+  <div class="w3-col m4">
+    <img src="img_forest.jpg" alt="Forest" style="width:100%">
+  </div>
+  <div class="w3-col m4">
+    <img src="img_mountains.jpg" alt="Mountains" style="width:100%">
+  </div>
+</div>
        <!-- ============ Top movies  ============= -->
-        <section id ="movie_list" class="description_content" style="height: 800px">
-             <div class="movie_list background_content stagger-wrapper" style="height: 82px;">
-                <h1 style="padding-top: 15px;">Top movies</h1>
+        <section id ="movie_list" class="description_content">
+             <div class="movie_list background_content stagger-wrapper">
+                <h1>Top movies</h1>
                     <div class="text-content container stagger-item">
-                        <div class="container stagger-item" style="width: 1830px;">
+                        <div class="container stagger-item">
                                 <img src="" width="250" height="220">
                                 <img src="" width="250" height="220">
                                 <img src="" width="250" height="220">
-                                <img src="" width="250" height="220">
-                                <img src="" width="250" height="220">
-                                <img src="" width="250" height="220">
-                                <div class="img-section-space" style="height: 50px;"></div>
-                                <img src="" width="250" height="220">
-                                <img src="" width="250" height="220">
+                                <div class="img-section-space"></div>
                                 <img src="" width="250" height="220">
                                 <img src="" width="250" height="220">
                                 <img src="" width="250" height="220">
@@ -105,62 +111,53 @@
              </div>
         </section>
 
-
-        <!-- ============ Popular ============= -->
-        <section id ="Popular" class="description_content" style="height: 800px">
-            <div  class="Popular background_content stagger-wrapper" style="height: 82px;">
-                <h1>See what's Popular!</h1>
-                <div class="text-content container stagger-item">
-                        <div class="container stagger-item" style="width: 1830px;">
-
-                                <img src="" width="250" height="220">
-    
-                                <!-- <label for="{{ movie.id }}">{{ movie.title }}</label> -->
-                                
-                                <img src="" width="250" height="220">
-                                <img src="" width="250" height="220">
-                                <img src="" width="250" height="220">
-                                <img src="" width="250" height="220">
-                                <img src="" width="250" height="220">
-                                <div class="img-section-space" style="height: 50px;"></div>
-                                <img src="" width="250" height="220">
-                                <img src="" width="250" height="220">
-                                <img src="" width="250" height="220">
-                                <img src="" width="250" height="220">
-                                <img src="" width="250" height="220">
-                                <img src="" width="250" height="220">
-                        </div>
-                    </div>
-             </div>
-        </section>
-        </section>
 
         <!-- ============ Coming Soon  ============= -->
-        <section id ="Coming_Soon" class="description_content" style="height: 800px">
-            <div  class="Coming_Soon background_content stagger-wrapper" style="height: 82px;">
+        <section id ="Coming_Soon" class="description_content">
+            <div  class="movie_list background_content stagger-wrapper">
                 <h1>Coming Soon</h1>
                 <div class="text-content container stagger-item">
-                        <div class="container stagger-item" style="width: 1830px;">
-                                {% for movie in movies%}
-                                <img src="" width="250" height="220">
-                                <h1>{{ movie}}</h1>
-                                {% endfor %}
+                    <div class="container stagger-item">
+                        <div class="row stagger-item">
+                            <div class="column stagger-item">
                                 <img src="" width="250" height="220">
                                 <img src="" width="250" height="220">
                                 <img src="" width="250" height="220">
                                 <img src="" width="250" height="220">
-                                <img src="" width="250" height="220">
-                                <div class="img-section-space" style="height: 50px;"></div>
-                                <img src="" width="250" height="220">
+                                <div class="img-section-space"></div>
                                 <img src="" width="250" height="220">
                                 <img src="" width="250" height="220">
                                 <img src="" width="250" height="220">
                                 <img src="" width="250" height="220">
-                                <img src="" width="250" height="220">
+                            </div>
                         </div>
                     </div>
+                </div>
              </div>
         </section>
+
+        <!-- ============ Popular  ============= -->
+        <section id ="Popular" class="description_content">
+            <div  class="movie_list background_content stagger-wrapper">
+                <h1>Popular movies!</h1>
+                <div class="text-content container stagger-item">
+                    <div class="container stagger-item">
+                        <div class="row stagger-item">
+                            <div class="column stagger-item">
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                                <div class="img-section-space"></div>
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                                <img src="" width="250" height="220">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
         </section>
 
 
@@ -187,10 +184,5 @@
         <script type="text/javascript" src="{% static 'js/jquery.mixitup.min.js' %}" ></script>
         <script type="text/javascript" src="{% static 'js/main.js' %}" ></script>
 
-
-
-        
     </body>
-
-    
 </html>

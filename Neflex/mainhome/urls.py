@@ -6,7 +6,7 @@ app_name = 'mainhome'
 
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.home, name='home'),
     path('select/', views.select, name='select')
     
 ]

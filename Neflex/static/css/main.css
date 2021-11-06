@@ -3,7 +3,11 @@ Theme Name: Movies
 Theme URI: http://themewagon.com/demo/Restaurant/
 Author: ThemeWagon
 Author URI: http://themewagon.com/
+<<<<<<< HEAD
 Description:
+=======
+Description: 
+>>>>>>> 5149d52c3667a07bd684cd8a9993f103ca8560ef
 Version: 1.0
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -13,10 +17,16 @@ Text Domain: restaurant
 GLOBAL
 =========================*/
 /* Three image containers (use 25% for four, and 50% for two, etc) */
+<<<<<<< HEAD
 
 .column {
   float: left
   width: 200%;
+=======
+.column {
+  float: left;
+  width: 33.33%;
+>>>>>>> 5149d52c3667a07bd684cd8a9993f103ca8560ef
   padding: 5px;
 }
 
@@ -44,8 +54,11 @@ p.desc-text{
     text-align: justify;
     margin-top: 50px;
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5149d52c3667a07bd684cd8a9993f103ca8560ef
 .text-content.container {
     margin-top: 130px;
     margin-bottom: -51px;
@@ -63,7 +76,10 @@ p.desc-text{
 }
 .img-section-space {
     margin-top: 5px;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5149d52c3667a07bd684cd8a9993f103ca8560ef
 }
 .fa-2x{
     padding-top: 5px;
@@ -93,6 +109,25 @@ p.desc-text{
     -moz-osx-font-smoothing: grayscale;
 }
 
+<<<<<<< HEAD
+=======
+.icon-mail:before {
+    content: "\e600";
+}
+
+.icon-github:before {
+    content: "\e601";
+}  
+
+.icon-twitter:before {
+    content: "\e602";
+}
+
+.icon-linkedin:before {
+    content: "\e603";
+}
+
+>>>>>>> 5149d52c3667a07bd684cd8a9993f103ca8560ef
 .carousel-slide{
     float: right !important;
     margin-right: -15px;
@@ -202,7 +237,11 @@ INTRO CONTAINER
     padding: 0;
     min-width: 100%;
     height: 100%;
+<<<<<<< HEAD
     background: url('../images/') no-repeat center center;
+=======
+    background: url('../images/film.jpg') no-repeat center center;
+>>>>>>> 5149d52c3667a07bd684cd8a9993f103ca8560ef
     background-size: cover;
     text-align: center;
     background-position: center;
@@ -228,9 +267,15 @@ INTRO CONTAINER
     font-weight: 400;
  }
 .second-title {
+<<<<<<< HEAD
     font-weight: lighter;
     font-size: 30px;
     font-style: normal;
+=======
+    font-weight: lighter; 
+    font-size: 30px; 
+    font-style: italic; 
+>>>>>>> 5149d52c3667a07bd684cd8a9993f103ca8560ef
     text-transform: capitalize;
 }
 
@@ -275,13 +320,21 @@ INTRO CONTAINER
     background-position: center;
     background-attachment: fixed;
 }
+<<<<<<< HEAD
 .Popular.background_content{
+=======
+.movie_list.background_content{
+>>>>>>> 5149d52c3667a07bd684cd8a9993f103ca8560ef
     background: url('../images/film.jpg') no-repeat center center;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
+<<<<<<< HEAD
 .Coming_Soon.background_content{
+=======
+.movie_list.background_content{
+>>>>>>> 5149d52c3667a07bd684cd8a9993f103ca8560ef
     background: url('../images/film.jpg') no-repeat center center;
     background-size: cover;
     background-position: center;
@@ -680,7 +733,11 @@ MEDIA QUERIES TABLET
         font-weight: 900;
         width: 280px;
         letter-spacing: 0.040em;
+<<<<<<< HEAD
         text-align: left;
+=======
+        border: 1px solid #2f2e2f;
+>>>>>>> 5149d52c3667a07bd684cd8a9993f103ca8560ef
     }
     .picture_content {
         display: inline-block;
