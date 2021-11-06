@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from .forms import CustomCreationForm
 from django.contrib import auth
 
+
 # Create your views here.
 def login(request) :
     if request.method == 'POST' :
@@ -16,7 +17,7 @@ def login(request) :
             auth.login(request, user)
             # if user.like_movie:
                 # return redirect('main:index')
-            return redirect('main:select')
+            return redirect('/select')
         else :
             return render(request, 'accounts/login.html', {'error': 'username or password is incorrect.'})
     else :
