@@ -5,27 +5,15 @@ from bs4 import BeautifulSoup as Soup
 import pandas as pd
 from django.db.models import Count
 import requests
-<<<<<<< HEAD:Neflex/mainhome/views.py
-# from .models import Movies, Ratings
-# from django.contrib.auth import get_user_model
-# import userfuc
+
 from .models import Movies
 
 # movie = Movies.objects.all()
 # print(movie)
 
 
-=======
-from .models import Movies, Ratings
 from django.contrib.auth import get_user_model
-<<<<<<< HEAD
-# import REC # REC 파이썬 폴더 사용 가능
 
-# REC.REC()
-=======
-import userfuc
->>>>>>> 49e75c2f91bfd413bddcbbaaba6db8f17da9ac23
->>>>>>> 5149d52c3667a07bd684cd8a9993f103ca8560ef:Neflex/main/views.py
 
 from . import myfunc
 # import myfunc
@@ -63,40 +51,15 @@ def select(request):
 
     return render(request, "main/select.html", context)
 
-<<<<<<< HEAD:Neflex/mainhome/views.py
-def index(request):
-  
-    # a = myfunc.REC('Toy Story (1995)')
-    # print(a)
-
-    # movie_id = []
-
-    # for i in range(4) :
-    #     movie_id.append(a.index[i])
-
-    # print(movie_id)
-    # print(a.iloc[0])
-    # print(a.index[0])
-    # print(a.iloc)
-
-
-    # context = {
-    #         'movie_id': ,
-    #         'movies': a
-    #     }
-
-
-
-=======
 def home(request):
->>>>>>> 5149d52c3667a07bd684cd8a9993f103ca8560ef:Neflex/main/views.py
+
     if request.method == 'POST':
         selected = request.POST.getlist('selected')
         user = request.user
         # user.like_movie = ','.join(selected)
         user.save()
         
-<<<<<<< HEAD:Neflex/mainhome/views.py
+
         print("gdsfafdasf")
 
         a = myfunc.REC('Toy Story (1995)')
@@ -120,10 +83,6 @@ def home(request):
 
         # return render(request, "main/select copy.html", context)
         return render(request, "main/home.html", context)
-=======
-        return render(request, "main/home.html")
->>>>>>> 5149d52c3667a07bd684cd8a9993f103ca8560ef:Neflex/main/views.py
-
 
     else:
         url = get('https://www.imdb.com/title/tt2382320/')
@@ -136,23 +95,12 @@ def home(request):
         
 
 
-<<<<<<< HEAD:Neflex/mainhome/views.py
-        # user = get_user_model().objects.get(pk=1)
-        # print(user.like_movie)
-        movies = Movies.objects.all()[:6]
 
-        movies='tt'
-=======
         user = get_user_model().objects.get(pk=1)
-<<<<<<< HEAD
+
         print(user.like_movie)
         movies = Movies.objects.all()[:8]
-=======
-        # print(user.like_movie)
-        movies = Movies.objects.all()[:6]
->>>>>>> 49e75c2f91bfd413bddcbbaaba6db8f17da9ac23
->>>>>>> 5149d52c3667a07bd684cd8a9993f103ca8560ef:Neflex/main/views.py
-        # print(movies)
+
 
         context = {
             'image': image,
