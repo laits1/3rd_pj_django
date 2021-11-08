@@ -98,7 +98,7 @@ def home(request):
 
         user = get_user_model().objects.get(pk=1)
 
-        print(user.like_movie)
+        # print(user.like_movie)
         movies = Movies.objects.all()[:8]
 
 
