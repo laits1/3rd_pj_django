@@ -109,14 +109,11 @@ textarea {
 }
 button {
   overflow: visible;
-<<<<<<< HEAD
   background:none;
   border:none;
   margin:0;
   padding:0;
   cursor: pointer;
-=======
->>>>>>> 5149d52c3667a07bd684cd8a9993f103ca8560ef
 }
 button,
 select {
@@ -1247,7 +1244,6 @@ pre code {
   max-height: 340px;
   overflow-y: scroll;
 }
-<<<<<<< HEAD
 .about_us_photo {
 padding-right: 15px;
 padding-left: 15px;
@@ -1261,13 +1257,6 @@ margin-left: 50px;
   margin-right: 25px;
   margin-left: 50px;
   margin-top: -40px;
-=======
-.container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
->>>>>>> 5149d52c3667a07bd684cd8a9993f103ca8560ef
 }
 @media (min-width: 768px) {
   .container {
@@ -1299,10 +1288,7 @@ margin-left: 50px;
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
-<<<<<<< HEAD
   margin-top: 200px;
-=======
->>>>>>> 5149d52c3667a07bd684cd8a9993f103ca8560ef
 }
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left;

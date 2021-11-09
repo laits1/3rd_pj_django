@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ne-Flex</title>
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}" media="screen" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/animation.css' %}" media="screen" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style-portfolio.css' %}">
+        <link rel="stylesheet" href="{% static 'css/picto-foundry-food.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+        <link rel="icon" href="icon/icon.ico" type="{% static 'image/x-icon' %}">
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="height: 80px;padding-top: 50px; margin-bottom: auto;">
+            <div class="container">
+                <div class="row">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="#top"><img src="{% static 'images/toplogo.jpg' %}" width="125" height="20" style="height: 30px; width: 100px; padding-top: 10px; margin-top: 5px;"></a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav main-nav  clear navbar-right ">
+
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div>
+            </div><!-- /.container-fluid -->
+        </nav>
+    <!-- Header-->
+        <!-- ============ Top movies  ============= -->
+        <section id ="Popular" class="description_content" style="height: 1500px">
+            <div  class="movie_list background_content" style="height: 82px;">
+                <form action="{% url 'accounts:after_login' %}" method = "POST">
+                <h1 class="stagger-wrapper">Select movie you like</h1>
+                    <div class="text-content container stagger-item">
+                        <div class="container stagger-item" style="width: 1830px;display: inline-flex;">
+                            {% csrf_token %}
+                            {% for movie in movies1 %}
+                            <p style="margin-right: 50px"><img src="{{ movie.image }}" width="250" height="220" />
+                            <br><br>
+                            <label for="{{ movie.movie_id }}" style="width: 200px;">{{ movie.title }}</label>
+                            <input type="checkbox" name="selected" value="{{ movie.movie_id }}"></p>
+                            {% endfor %}
+                        </div>
+
+
+                        <div class="container stagger-item" style="width: 1830px;display: inline-flex;">
+                            {% csrf_token %}
+                            {% for movie in movies2 %}
+                            <p style="margin-right: 50px"><img src="{{ movie.image }}" width="250" height="220" />
+                            <br><br>
+                            <label for="{{ movie.movie_id }}" style="width: 200px;">{{ movie.title }}</label>
+                            <input type="checkbox" name="selected" value="{{ movie.movie_id }}"></p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                   
+                    <div class="text-content container stagger-item">
+                        <div class="container stagger-item" style="width: 1830px;display: inline-flex;">
+                            <button class="btn btn-primary">Submit</button></form>
+                        </div>
+                    </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+<!-- 
+        <section id ="Popular" class="description_content" style="height: 1500px">
+            <div  class="movie_list background_content" style="height: 82px;">
+                <form action="{% url 'accounts:after_login' %}" method = "POST"></form>
+                <h1 class="stagger-wrapper">Select movie you like</h1>
+                    {% csrf_token %}
+                    {% for movie in movies %}
+                    <div class="text-content container stagger-item">
+                        <div class="container stagger-item" style="width: 1830px;display: inline-flex;">
+                            <p style="margin-right: 50px"><img src="{{ movie.image }}" style="width: 50%; height: auto;" />
+                            <br><br>
+                            <label for="{{ movie.id }}" style="width: 200px;">{{ movie.title }}</label><input type="checkbox" name="selected" value="{{ movie.image_id }}"></p>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                        <button class="btn btn-primary">Submit</button>
+                    </form>
+
+            </div>
+        </section> -->
+
+
+
+        <footer class="sub_footer">
+            <div class="container">
+                <div class="col-md-4"><p class="sub-footer-text text-center">&copy; Ne-Flex</p></div>
+                <div class="col-md-4"><p class="sub-footer-text text-center">Back to <a href="#top">TOP</a></p>
+                </div>
+                <div class="col-md-4"><p class="sub-footer-text text-center">Built With Care By <a href="#" target="_blank">Us</a></p></div>
+            </div>
+        </footer>
+
+
+        <script type="text/javascript" src="{% static 'js/jquery-1.10.2.min.js' %}"> </script>
+        <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}" ></script>
+        <script type="text/javascript" src="{% static 'js/jquery-1.10.2.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/jquery.mixitup.min.js' %}" ></script>
+        <script type="text/javascript" src="{% static 'js/main.js' %}" ></script>
+
+    </body>
+</html>
+
+
+{% endblock %}

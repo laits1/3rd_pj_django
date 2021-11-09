@@ -34,7 +34,6 @@
 }
 .stagger-item:nth-child(5) {
     animation-delay: 0.5s;
-<<<<<<< HEAD
 }
 
 .stagger-item:nth-child(6) {
@@ -52,6 +51,3 @@
 .stagger-item:nth-child(10) {
     animation-delay: 1.0s;
 }
-=======
-}
->>>>>>> 5149d52c3667a07bd684cd8a9993f103ca8560ef

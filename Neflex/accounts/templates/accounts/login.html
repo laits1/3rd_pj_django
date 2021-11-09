@@ -1,21 +1,76 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-<div class="wrapper">
-    <div style="text-align: center;">
-        <h1>로그인</h1>
-        <form method="POST">
-            {% csrf_token %}
-            아이디:
-            <br>
-            <input name="username" type="text">
-            <br>
-            비밀번호:
-            <br>
-            <input name="password" type="password">
-            <br><br>
-            <input type="submit" class="btn btn-primary" value="Login">
-        </form>
-    </div>
-</div>
-{% endblock %}
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ne-Flex</title>
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}" media="screen" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/animation.css' %}" media="screen" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style-portfolio.css' %}">
+        <link rel="stylesheet" href="{% static 'css/picto-foundry-food.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+        <link rel="icon" href="icon/icon.ico" type="{% static 'image/x-icon' %}">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="height: 70px;padding-top: 50px;">
+            <div class="container">
+                <div class="row">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="#top"><img src="{% static 'images/toplogo.jpg' %}" width="125" height="20" style="height: 30px;width: 100px;margin-top: 5px;margin-right: 5000px;"></a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav main-nav  clear navbar-right ">
+
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div>
+            </div><!-- /.container-fluid -->
+        </nav>
+                    <div id="top" class="starter_container bg stagger-wrapper">
+                        <div class="follow_container stagger-item" style="margin-top: -350px;">
+                            <div class="col-md-6 col-md-offset-3 stagger-item">
+                                <br>
+                                <br>
+                                    <div class="wrapper bg" >
+                                        <div style="text-align: center; stagger-wrapper">
+                                            <h1 style= "width: 334px;text-align: center;margin-top: 30px;font-family: auto;border: none;"> Please sign in </h1>
+                                            <br><br>
+                                            <!-- <form method= "POST"> -->
+                                            <form action="{% url 'accounts:login' %}" method = "POST">
+                                                {% csrf_token %}
+                                                <!-- <div class= "stagger-item" style="color:white;width: 530px;font-weight: 900;">Username</div> -->
+                                                <br>
+                                                <div class= "stagger-item" style="width: 615px;"><input name="username" type="text" placeholder="Username" style="width: 259px;margin-left: 150px;"></div>
+                                                <br>
+                                                <!-- <div class= "stagger-item" style="color:white;width: 530px;font-weight: 900;">Password</div> -->
+                                                <br>
+                                                <div class= "stagger-item" style="width: 615px;"><input name="password" type="password" placeholder="Password" style="width: 259px;margin-left: 150px;"></div>
+                                                <br><br>
+                                                <div style="position: absolute; padding-left: 230px;"><button type="submit" class="btn btn-primary" value="Login" style= "margin-bottom: 30px;margin-left: 70px;">Log In</button></div>
+                                            </form>
+                                            <a href="http://127.0.0.1:8000/accounts/signup/"><button class="btn btn-primary" style="margin-bottom: 30px;margin-left: 70px;">Join Us!</button></a>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+    {% endblock %}

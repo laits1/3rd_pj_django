@@ -1,23 +1,83 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.hashers import make_password
+from pandas.core.frame import DataFrame
 import requests
 from django.contrib.auth import authenticate, get_user_model
 from django.contrib.auth.models import User
+import pandas as pd
+from main.models import Movie_Images
 from .forms import CustomCreationForm
 from django.contrib import auth
-
-
+from . import myfunc
+import random
 # Create your views here.
+def find_key(dict, val):
+  return next(key for key, value in dict.items() if value == val)
+
+def after_login(request):
+    if request.method == 'POST':
+        print("영화저장성공")
+        selected = request.POST.getlist('selected')
+        user = request.user
+        user.like_movie = ','.join(selected)
+        user.save()
+    
+        # print("유저가 선택한 영화 번호 : ", user.like_movie.split(',')[0])    
+    user = request.user 
+
+
+    u1 = int(user.like_movie.split(',')[0])
+    u2 = int(user.like_movie.split(',')[1])
+    u3 = int(user.like_movie.split(',')[2])
+
+    movieId = list(myfunc.rec1([u1, u2, u3]).values())
+    di= myfunc.rec1([u1, u2, u3])
+    movietitle = list(myfunc.rec1([u1, u2, u3]).keys())
+    recomend= random.sample(movieId, 8)
+    randommovietitle= []
+    
+
+    for i in recomend:
+        
+        randommovietitle.append(find_key(di, i)[:20])
+
+    movieImage = []
+   
+    for i in range(8) :
+        movieImage.append(Movie_Images.objects.get(id=recomend[i]).image)
+
+    print(randommovietitle)     # 추천결과 영화 제목
+    print(recomend)             # 추천결과 영화 번호
+    print(movieImage)           # 추천결과 영화 이미지 주소
+
+    # a = DataFrame
+    # a -> json 형식으로 바꿔서
+    data = list(zip(randommovietitle, recomend, movieImage))
+    df = pd.DataFrame(data, columns = ['title', 'movie_id', 'image'])
+    movies = df.to_dict('records')
+
+
+    # unerfunc.py  select_maintable 함수에  return에 보면 result.todict 여기에 records 파라미터 // index.html 파일에서 표를 그리는 코드가 있음. 거기서 for하나 넣고 지금 우리코드랑 똑같이사용중.
+
+    context = {
+        'movies1': movies[:4],
+        'movies2': movies[4:]
+    }
+    return render(request, 'accounts/after_login_page.html', context)
+
+
 def login(request) :
+
     if request.method == 'POST' :
+
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
-        if user is not None : 
+        if user is not None : # 올바른 아이디로 접속하면
             auth.login(request, user)
-            # if user.like_movie:
-                # return redirect('main:index')
-            return redirect('/select')
+            if user.like_movie:
+                return redirect('accounts:after_login')
+            return redirect('main:select')
         else :
             return render(request, 'accounts/login.html', {'error': 'username or password is incorrect.'})
     else :
@@ -33,31 +93,44 @@ def home(request) :
 
 
 def signup(request) :
+    # 회원가입 화면에서 회원가입 버튼 눌렀을 때
     if request.method == 'POST':
-        form = CustomCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('accounts:login')
-        context={'form':form}
-        return render(request, 'accounts/login.html')
-        #유저 정보 저장
-	
-        # id = request.POST.get('name')
-        # password = request.POST.get('password')
+        print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@post?')
+        username = request.POST.get('name')
+        password = request.POST.get('password')
+        print(request.POST)
+        # print(username, password)
 
-        # hashed_password = make_password(password)
-
-        # get_user_model().objects.create(
-        #     username=id,
-        #     password=hashed_password)
-        # return redirect('accounts:login')
-
-
-    else:
-        form = CustomCreationForm()
-
-        context = {
-            'form': form,
+        user_info = {
+            'csrfmiddlewaretoken' : request.POST.get('csrfmiddlewaretoken'),
+            'username' : username,
+            'password1' : password,
+            'password2' : password 
         }
 
+        print(user_info)
+
+
+        form = CustomCreationForm(user_info)       # 직접만든 폼
+        # form = CustomCreationForm(request.POST)  # 제공폼
+        
+        if form.is_valid():
+            print("form 유효?")
+            form.save()
+            return redirect('accounts:login')
+
+        
+        context={'form':form}
+        
         return render(request, 'accounts/signup.html', context)
+
+
+    # 회원가입 완료 후 -> 로그인 페이지로 갈 때
+    else:
+        print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@no post?')
+        form = CustomCreationForm()
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'accounts/signup.html', context)
