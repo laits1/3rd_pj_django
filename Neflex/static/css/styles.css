@@ -10,6 +10,30 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+  .detail_info {
+    width: 400px;
+    float: left;
+    padding: 10px;
+}
+.detail_page {
+    width : 1000px;
+    padding: 10px;
+    top: 10px;
+    left: 50%;
+    margin : auto;
+    overflow: hidden;
+    display: flex;
+    padding-top: 20px;
+}
+
+.posterImg {
+    width: 700px; float: left;
+    margin-left: 10px;
+    text-align: right;
+    padding-top: 10px;
+}
+
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;

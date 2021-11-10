@@ -41,6 +41,7 @@
                             <li><a class="color_animation" href="#movie_list">Movies for you</a></li>
                             <li><a class="color_animation" href="#Popular">Popular</a></li>
                             <li><a class="color_animation" href="#Coming_Soon">How about these?</a></li>
+                            <li><a class="color_animation" href="{% url 'accounts:mood' %}">mood</a></li>
                             <!-- <form action="{% url 'main:home' %}"> -->
                             <li><a class="color_animation" href="{% url 'main:home' %}" >Logout</a></li>
                             <!-- </form> -->
@@ -52,20 +53,22 @@
 
        <!-- ============ Top movies  ============= -->
        <section id ="movie_list" class="description_content" style="height: 800px">
-        <div  class="movie_list background_content stagger-wrapper" style="height: 82px;top: 3%;">
+        <div  class="movie_list background_content stagger-wrapper" style="height: 82px;top: 6%;">
             <h1 class="stagger-item">Genres</h1>
                 <div class="text-content container stagger-wrapper">
-                    <div class="container stagger-item" style="width: 1830px;display: inline-flex; justify-content: space-between; text-align: center;">
+                    <div class="container stagger-item" style="width: 1430px;display: inline-flex; justify-content: space-between; text-align: center;">
 
                         {% for movie in movies1%}
-                        <p><img src="{{ movie.image }}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
+                        <p><img src="{{ movie.image }}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br>
+                            <a href="">{{movie.title}}</a></p>
                         {% endfor %}
                     </div>
 
-                    <div class="container stagger-item" style="width: 1830px;display: inline-flex;margin-top: 5%; justify-content: space-between; text-align: center; ">
+                    <div class="container stagger-item" style="width: 1430px;display: inline-flex;margin-top: 5%; justify-content: space-between; text-align: center; ">
 
                         {% for movie in movies2%}
-                        <p><img src="{{ movie.image }}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
+                        <p><img src="{{ movie.image }}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br>
+                            <a href="">{{movie.title}}</a></p>
                         {% endfor %}
                     </div>
 
@@ -85,14 +88,14 @@
             <div  class="Popular background_content stagger-wrapper" style="height: 82px;top: 3%;">
                 <h1 class="stagger-item">Item</h1>
                     <div class="text-content container stagger-item">
-                        <div class="container stagger-item" style="width: 1830px;display: inline-flex; justify-content: space-between; text-align: center;">
+                        <div class="container stagger-item" style="width: 1430px;display: inline-flex; justify-content: space-between; text-align: center;">
 
                                 {% for movie in movies3%}
                                 <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
                                 {% endfor %}
                         </div>
 
-                        <div class="container stagger-item" style="width: 1830px;display: inline-flex;margin-top: 5%; justify-content: space-between; text-align: center;">
+                        <div class="container stagger-item" style="width: 1430px;display: inline-flex;margin-top: 5%; justify-content: space-between; text-align: center;">
 
                                 {% for movie in movies4%}
                                 <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
@@ -107,14 +110,14 @@
             <div  class="Popular background_content stagger-wrapper" style="height: 82px;top: 3%;">
                 <h1 class="stagger-item">Rating</h1>
                 <div class="text-content container stagger-item">
-                    <div class="container stagger-item" style="width: 1830px;display: inline-flex; justify-content: space-between; text-align: center;">
+                    <div class="container stagger-item" style="width: 1430px;display: inline-flex; justify-content: space-between; text-align: center;">
 
                             {% for movie in movies3%}
                             <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
                             {% endfor %}
                     </div>
 
-                    <div class="container stagger-item" style="width: 1830px;display: inline-flex;margin-top: 5%; justify-content: space-between; text-align: center;">
+                    <div class="container stagger-item" style="width: 1430px;display: inline-flex;margin-top: 5%; justify-content: space-between; text-align: center;">
 
                             {% for movie in movies4%}
                             <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
@@ -127,11 +130,10 @@
         <!-- ============ Footer Section  ============= -->
 
         <footer class="sub_footer">
-            <div class="container">
-                <div class="col-md-4"><p class="sub-footer-text text-center">&copy; Ne-Flex</p></div>
-                <div class="col-md-4"><p class="sub-footer-text text-center">Back to <a href="#top">TOP</a></p>
-                </div>
-                <div class="col-md-4"><p class="sub-footer-text text-center">Built With Care By <a href="#" target="_blank">Us</a></p></div>
+            <div class="container" style="margin-left: 150px;">
+                <div class="col-md-4" style="margin-top: 80px;"><p class="sub-footer-text text-center">&copy; Ne-Flex</p></div>
+                <div class="col-md-4" style="margin-top: 80px;"><p class="sub-footer-text text-center">Back to <a href="#top">TOP</a></p></div>
+                <div class="col-md-4" style="margin-top: 80px;"><p class="sub-footer-text text-center">Built With Care By <a href="#" target="_blank">Us</a></p></div>
             </div>
         </footer>
 

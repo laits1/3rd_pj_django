@@ -5,7 +5,8 @@ import requests
 from django.contrib.auth import authenticate, get_user_model
 from django.contrib.auth.models import User
 import pandas as pd
-from main.models import Movie_Images, Movies
+
+from main.models import Movie_Images, Movies, Emotion
 from .forms import CustomCreationForm
 
 from django.contrib import auth
@@ -23,7 +24,7 @@ def after_login(request):
         user.like_movie = ','.join(selected)
         user.save()
     
-        # print("유저가 선택한 영화 번호 : ", user.like_movie.split(',')[0])    
+    # print("유저가 선택한 영화 번호 : ", user.like_movie.split(',')[0])
     user = request.user 
 
 
@@ -174,3 +175,167 @@ def signup(request) :
         'form': form,
     }
     return render(request, 'accounts/signup.html', context)
+
+
+def mood(request):
+    if request.method == 'POST':
+        mood = request.POST.getlist('mood')
+        mood = ''.join(mood)
+
+
+        if mood == 'happy' :
+            movie_id = []
+            images = []
+            title = []
+            for i in range(16) :
+                movie_id.append(Emotion.objects.order_by('-Happy').values()[i]['id'])
+
+            Random_movie_id = random.sample(movie_id, 8)
+
+            for i in range(len(Random_movie_id)) :
+                images.append(Movie_Images.objects.get(id=Random_movie_id[i]).image)
+                title.append(Movies.objects.get(id=Random_movie_id[i]).title)
+
+ 
+
+            # 타이틀 제목 25글자 제한
+            for i in range(len(title)) : 
+                if len(title[i]) > 25 :
+                    title[i] = title[i][:25] + "..." 
+
+            data = list(zip(title, movie_id, images))
+            df = pd.DataFrame(data, columns = ['title', 'movie_id', 'image'])
+            movies = df.to_dict('records')
+
+            context = {
+                'movies1': movies[:4],
+                'movies2': movies[4:],
+             }
+
+            return render(request, 'accounts/after_mood_happy.html', context)
+        elif mood == 'angry' :
+
+            movie_id = []
+            images = []
+            title = []
+            for i in range(16) :
+                movie_id.append(Emotion.objects.order_by('-Angry').values()[i]['id'])
+
+            Random_movie_id = random.sample(movie_id, 8)
+
+            for i in range(len(Random_movie_id)) :
+                images.append(Movie_Images.objects.get(id=Random_movie_id[i]).image)
+                title.append(Movies.objects.get(id=Random_movie_id[i]).title)
+
+            # 타이틀 제목 25글자 제한
+            for i in range(len(title)) : 
+                if len(title[i]) > 25 :
+                    title[i] = title[i][:25] + "..." 
+
+            data = list(zip(title, movie_id, images))
+            df = pd.DataFrame(data, columns = ['title', 'movie_id', 'image'])
+            movies = df.to_dict('records')
+
+            context = {
+                'movies1': movies[:4],
+                'movies2': movies[4:],
+             }
+
+            return render(request, 'accounts/after_mood_angry.html', context)
+        elif mood == 'fear' :
+
+            movie_id = []
+            images = []
+            title = []
+            for i in range(16) :
+                movie_id.append(Emotion.objects.order_by('-Fear').values()[i]['id'])
+
+            Random_movie_id = random.sample(movie_id, 8)
+
+            for i in range(len(Random_movie_id)) :
+                images.append(Movie_Images.objects.get(id=Random_movie_id[i]).image)
+                title.append(Movies.objects.get(id=Random_movie_id[i]).title)
+
+            # 타이틀 제목 25글자 제한
+            for i in range(len(title)) : 
+                if len(title[i]) > 25 :
+                    title[i] = title[i][:25] + "..." 
+
+            data = list(zip(title, movie_id, images))
+            df = pd.DataFrame(data, columns = ['title', 'movie_id', 'image'])
+            movies = df.to_dict('records')
+
+            context = {
+                'movies1': movies[:4],
+                'movies2': movies[4:],
+             }
+
+            return render(request, 'accounts/after_mood_fear.html', context)
+        elif mood == 'sad' :
+
+            movie_id = []
+            images = []
+            title = []
+            for i in range(16) :
+                movie_id.append(Emotion.objects.order_by('-Sad').values()[i]['id'])
+
+            Random_movie_id = random.sample(movie_id, 8)
+
+            for i in range(len(Random_movie_id)) :
+                images.append(Movie_Images.objects.get(id=Random_movie_id[i]).image)
+                title.append(Movies.objects.get(id=Random_movie_id[i]).title)
+
+            # 타이틀 제목 25글자 제한
+            for i in range(len(title)) : 
+                if len(title[i]) > 25 :
+                    title[i] = title[i][:25] + "..." 
+
+            data = list(zip(title, movie_id, images))
+            df = pd.DataFrame(data, columns = ['title', 'movie_id', 'image'])
+            movies = df.to_dict('records')
+
+            context = {
+                'movies1': movies[:4],
+                'movies2': movies[4:],
+             }
+
+            return render(request, 'accounts/after_mood_sad.html', context)  
+
+        elif mood == 'surprise' :
+
+            movie_id = []
+            images = []
+            title = []
+            for i in range(16) :
+                movie_id.append(Emotion.objects.order_by('-Surprise').values()[i]['id'])
+
+            Random_movie_id = random.sample(movie_id, 8)
+
+            for i in range(len(Random_movie_id)) :
+                images.append(Movie_Images.objects.get(id=Random_movie_id[i]).image)
+                title.append(Movies.objects.get(id=Random_movie_id[i]).title)
+
+            # 타이틀 제목 25글자 제한
+            for i in range(len(title)) : 
+                if len(title[i]) > 25 :
+                    title[i] = title[i][:25] + "..." 
+
+            data = list(zip(title, movie_id, images))
+            df = pd.DataFrame(data, columns = ['title', 'movie_id', 'image'])
+            movies = df.to_dict('records')
+
+            context = {
+                'movies1': movies[:4],
+                'movies2': movies[4:],
+             }
+
+            return render(request, 'accounts/after_mood_surprise.html', context)
+
+
+    else :
+        return render(request, 'accounts/mood.html')
+
+
+
+def moviepage(request):
+    return render(request, 'accounts/moviepage.html')

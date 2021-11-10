@@ -1,0 +1,89 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ne-Flex: Angry</title>
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}" media="screen" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/animation.css' %}" media="screen" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style-portfolio.css' %}">
+        <link rel="stylesheet" href="{% static 'css/picto-foundry-food.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+        <link rel="icon" href="{% static 'images/icon.ico' %}" type="image/x-icon">
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="height: 70px;padding-top: 50px;">
+            <div class="container">
+                <div class="row">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="{% url 'main:home' %}"><img src="{% static 'images/toplogo.jpg' %}" width="125" height="20" style="height: 30px; width: 100px; margin-top: 10px;"></a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav main-nav  clear navbar-right ">
+                            <li><a class="navactive color_animation" href="#top">WELCOME</a></li>
+                            <li><a class="color_animation" href="http://127.0.0.1:8000">Logout</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div>
+            </div><!-- /.container-fluid -->
+        </nav>
+
+       <!-- ============ Top movies  ============= -->
+        <section id ="movie_list" class="description_content" style="height: 900px">
+            <div  class="background_content stagger-wrapper" style="height: 82px;top: 6%;">
+                <h1 class="stagger-item"><img src="{% static 'images/Angry.jpg' %}" class="stagger-item" width="30" height="30" style="margin-right: 10px;margin-bottom: 10px;"/>Angry</h1>
+                    <div class="text-content container stagger-wrapper">
+                        <div class="container stagger-item" style="width: 1830px;display: inline-flex;justify-content: space-between;text-align: center;">
+
+                            {% for movie in movies1%}
+                            <p><img src="{{ movie.image }}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
+                            {% endfor %}
+                        </div>
+    
+                        <div class="container stagger-item" style="width: 1830px;display:inline-flex;margin-top: 5%; justify-content: space-between; text-align: center; ">
+    
+                            {% for movie in movies2%}
+                            <p><img src="{{ movie.image }}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
+                            {% endfor %}
+                        </div>
+    
+                    </div>
+            </div>
+        </section>
+
+        <!-- ============ Footer Section  ============= -->
+
+        <footer class="sub_footer">
+            <div class="container" style="margin-left: 150px;">
+                <div class="col-md-4" style="margin-top: 80px;"><p class="sub-footer-text text-center">&copy; Ne-Flex</p></div>
+                <div class="col-md-4" style="margin-top: 80px;"><p class="sub-footer-text text-center">Back to <a href="#top">TOP</a></p></div>
+                <div class="col-md-4" style="margin-top: 80px;"><p class="sub-footer-text text-center">Built With Care By <a href="#" target="_blank">Us</a></p></div>
+            </div>
+        </footer>
+
+
+        <script type="text/javascript" src="{% static 'js/jquery-1.10.2.min.js' %}"> </script>
+        <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}" ></script>
+        <script type="text/javascript" src="{% static 'js/jquery-1.10.2.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/jquery.mixitup.min.js' %}" ></script>
+        <script type="text/javascript" src="{% static 'js/main.js' %}" ></script>
+
+    </body>
+</html>

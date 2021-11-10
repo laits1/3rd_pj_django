@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, HttpResponseRedirect
 
 import pandas as pd
 from django.db.models import Count
@@ -11,9 +11,13 @@ from requests import get
 from bs4 import BeautifulSoup as Soup
 from django.contrib import auth
 # Create your views here.
-from . import movieimage
+from django.contrib import messages
 import random
 # from . import RECO
+# from ..accounts import RECO
+
+
+
 
 def select(request):
     if request.method == 'POST':
@@ -64,7 +68,7 @@ def select(request):
 def home(request):
     if request.method == 'POST':
         print("로그인성공")
-
+        
         selected = request.POST.getlist('selected')
         user = request.user
         user.like_movie = ','.join(selected)
@@ -79,14 +83,15 @@ def home(request):
     else:
         
         print("홈 함수 실행")
-        # a = RECO.get_movie_recommendation('Iron Man').Title.tolist()
-        # print(a)
 
+      
 
 
         # Top
         TopMovie = ['111161', '68646', '71562', '468569', '50083', '108052', '110912', '60196', '120737', '137523', '109830', '1375666', '167261', 
-        '80684', '133093', '99685', '73486', '114369', '102926', '76759', '816692']
+        '80684', '133093', '99685', '73486', '114369', '102926', '76759', '816692','61512','57012','47396','34583','78788','120586','71315','82971','105236','86879',
+        '53125','88846','71853','338013','208092','245429','118799','317248','120815','86190','361748','209144','56592','116282','435761','75314','83658','93058',
+        '151804','119217','119488','910970','169547','2015381','97576','33467','106308','117951','88763','54215']
         RandomTop= random.sample(TopMovie, 8)
 
         images = []

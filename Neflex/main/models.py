@@ -47,3 +47,16 @@ class Actor(models.Model):
 
 class Description(models.Model):
     Description = models.TextField()
+
+class Emotion(models.Model) :
+    Happy = models.FloatField()
+    Angry = models.FloatField()
+    Surprise = models.FloatField()
+    Sad = models.FloatField()
+    Fear = models.FloatField()
+
+class Introduction(models.Model) :
+    Rating = models.FloatField()
+    Director = models.CharField(max_length=100)
+    Actor_list = models.CharField(max_length=100)
+    

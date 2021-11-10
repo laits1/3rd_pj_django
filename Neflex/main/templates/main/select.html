@@ -30,18 +30,11 @@
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
                         </button>
-                        <a href="#top"><img src="{% static 'images/toplogo.jpg' %}" width="125" height="20" style="height: 30px; width: 100px; padding-top: 10px; margin-top: 5px;"></a>
+                        <a href="#top"><img src="{% static 'images/toplogo.jpg' %}" width="125" height="20" style="height: 30px; width: 100px; margin-top: 10px;"></a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav main-nav  clear navbar-right ">
-
-                        </ul>
                     </div><!-- /.navbar-collapse -->
                 </div>
             </div><!-- /.container-fluid -->
@@ -51,7 +44,7 @@
         <section id ="Popular" class="description_content" style="height: 1500px">
             <div  class="movie_list background_content" style="height: 82px;">
                 <form action="{% url 'accounts:after_login' %}" method = "POST">
-                <h1 class="stagger-wrapper">Select movie you like</h1>
+                <h1 class="stagger-wrapper" style="top: 20px;">Select movie you like(Choose 3 Movies!!!)</h1>
                     <div class="text-content container stagger-item">
                         <div class="container stagger-item" style="width: 1830px;display: inline-flex; justify-content: space-between; text-align: center;">
                             {% csrf_token %}
@@ -67,6 +60,15 @@
                         <div class="container stagger-item" style="width: 1830px;display: inline-flex; margin-top: 5%;  justify-content: space-between; text-align: center;">
                             {% csrf_token %}
                             {% for movie in movies2 %}
+                            <p style="margin-right: 50px"><img src="{{ movie.image }}" width="250" height="220" />
+                            <br><br>
+                            <label for="{{ movie.movie_id }}" style="width: 200px;">{{ movie.title }}</label>
+                            <input type="checkbox" name="selected" value="{{ movie.movie_id }}"></p>
+                            {% endfor %}
+                        </div>
+                        <div class="container stagger-item" style="width: 1830px;display: inline-flex; margin-top: 5%;  justify-content: space-between; text-align: center;">
+                            {% csrf_token %}
+                            {% for movie in movies3 %}
                             <p style="margin-right: 50px"><img src="{{ movie.image }}" width="250" height="220" />
                             <br><br>
                             <label for="{{ movie.movie_id }}" style="width: 200px;">{{ movie.title }}</label>
@@ -115,11 +117,10 @@
 
 
         <footer class="sub_footer">
-            <div class="container">
-                <div class="col-md-4"><p class="sub-footer-text text-center">&copy; Ne-Flex</p></div>
-                <div class="col-md-4"><p class="sub-footer-text text-center">Back to <a href="#top">TOP</a></p>
-                </div>
-                <div class="col-md-4"><p class="sub-footer-text text-center">Built With Care By <a href="#" target="_blank">Us</a></p></div>
+            <div class="container" style="margin-left: 150px;">
+                <div class="col-md-4" style="margin-top: 80px;"><p class="sub-footer-text text-center">&copy; Ne-Flex</p></div>
+                <div class="col-md-4" style="margin-top: 80px;"><p class="sub-footer-text text-center">Back to <a href="#top">TOP</a></p></div>
+                <div class="col-md-4" style="margin-top: 80px;"><p class="sub-footer-text text-center">Built With Care By <a href="#" target="_blank">Us</a></p></div>
             </div>
         </footer>
 

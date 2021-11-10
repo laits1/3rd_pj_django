@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-{% load static %}
 {% block content %}
+{% load static %}
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <html>
@@ -18,12 +18,12 @@
         <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
-        <link rel="icon" href="icon/icon.ico" type="{% static 'image/x-icon' %}">
+        <link rel="icon" href="{% static 'images/icon.ico' %}" type="image/x-icon">
     </head>
 
     <body>
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="height: 70px;padding-top: 50px;">
-            <div class="container">
+            <div class="container" style="width: 230px; position: absolute;">
                 <div class="row">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
@@ -33,7 +33,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a href="#top"><img src="{% static 'images/toplogo.jpg' %}" width="125" height="20" style="height: 30px;width: 100px;margin-top: 5px;margin-right: 5000px;"></a>
+                        <a href="{% url 'main:home' %}"><img src="{% static 'images/toplogo.jpg' %}" width="125" height="20" style="height: 30px;width: 100px;margin-top: 10px;"></a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -45,63 +45,27 @@
                 </div>
             </div><!-- /.container-fluid -->
         </nav>
-                    <div id="top" class="starter_container bg stagger-wrapper">
-                        <div class="follow_container stagger-item" style="margin-top: -350px;">
-                            <div class="col-md-6 col-md-offset-3 stagger-item">
-                                <br>
-                                <br>
-                                <div class="wrapper">
-                                    <div style="/* text-align: center; */stagger-wrapper;">
-                                        <h1 style="width: 334px;text-align: center;margin-top: 30px;font-family: auto;border: none;"> Please sign in </h1>
-                                        <br><br>
-                                        <!-- <form method= "POST"> -->
-                                        <form action="{% url 'accounts:login' %}" method="POST">
-                                            {% csrf_token %}   
-                                            <!-- <input type="hidden" name="csrfmiddlewaretoken" value="grXaSe7GikjuFVrr6Mt39YlJOl6krWEh4FKQp2xnUXk2uNrOp0vs2jYOff1zrasU"> -->
-                                            <!-- <div class= "stagger-item" style="color:white;width: 530px;font-weight: 900;">Username</div> -->
-                                            <br>
-                                            <div class="" style="/* width: 615px; *//* text-align: center; *//* display: flex; *//* justify-content: center; */"><input name="username" type="text" placeholder="Username" style="width: 259px;/* margin-left: 150px; */"></div>
-                                            <br>
-                                            <!-- <div class= "stagger-item" style="color:white;width: 530px;font-weight: 900;">Password</div> -->
-                                            <br>
-                                            <div class="stagger-item" style="/* width: 615px; *//* text-align: center; */"><input name="password" type="password" placeholder="Password" style="width: 259px;/* margin-left: 150px; */"></div>
-                                            <br><br>
-                                            <div style="/* position: absolute; *//* padding-left: 230px; *//* text-align: center; */display: flex;justify-content: center;">
-                                                <button type="submit" class="btn btn-primary" value="Login" style="margin-bottom: 30px;/* margin-left: 70px; */">Log In</button>
-                                        </form>
-                                                <form action="/accounts/signup/" style="">        
-                                                <button class="btn btn-primary" style="margin-bottom: 30px;margin-left: 70px;">Join Us!</button>
-                                            </div>      
-                                                </form>
-                            
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <div id="top" class="starter_container bg">
+                <div class="wrapper bg" style="margin-top: 30px;">
+                     <div class="stagger-wrapper" style="height:760px;padding-top: 150px;">
+                        <h1 class="stagger-item" style= "width: 334px;text-align: center;margin-top: 30px;font-family: auto;border: none;"> Please sign in </h1>
+                        <br><br>
+                        <form method= "POST">
+                            {% csrf_token %}
+                                                <!-- <div class= "stagger-item" style="color:white;width: 530px;font-weight: 900;">Username</div> -->
+                            <br>
+                            <div class= "stagger-item"><input name="username" type="text" placeholder="Username" style="width: 300px;"></div>
+                            <br>
+                                                <!-- <div class= "stagger-item" style="color:white;width: 530px;font-weight: 900;">Password</div> -->
+                            <br>
+                            <div class= "stagger-item"><input name="password" type="password" placeholder="Password" style="width: 300px;"></div>
+                            <br><br>
+                            <div class="stagger-item" style="margin-top: -20px;"><button type="submit" class="btn btn-primary" value="Login" style= "margin-bottom: 15px;margin-left: 35px;margin-top: 15px;margin-right: 35px;">Log In</button></div>
+                        </form>
+                                <form action="/accounts/signup/" style=""> 
+                                <button class="btn btn-primary" style="margin-bottom: 30px;">Join Us!</button>
                     </div>
-    {% endblock %}
-
-
-
-
-
-
-    <!-- <div class="wrapper bg" >
-        <div style="text-align: center; stagger-wrapper">
-            <h1 style= "width: 334px;text-align: center;margin-top: 30px;font-family: auto;border: none;"> Please sign in </h1>
-            <br><br>
-
-            <form action="{% url 'accounts:login' %}" method = "POST">
-                {% csrf_token %}
-                <br>
-                <div class= "stagger-item" style="width: 615px;"><input name="username" type="text" placeholder="Username" style="width: 259px;margin-left: 150px;"></div>
-                <br>
-                <br>
-                <div class= "stagger-item" style="width: 615px;"><input name="password" type="password" placeholder="Password" style="width: 259px;margin-left: 150px;"></div>
-                <br><br>
-                <div style="position: absolute; padding-left: 230px;"><button type="submit" class="btn btn-primary" value="Login" style= "margin-bottom: 30px;margin-left: 70px;">Log In</button></div>
-            </form>
-            <form action="{% url 'accounts:signup' %}">
-            <button class="btn btn-primary" style="margin-bottom: 30px;margin-left: 70px;">Join Us!</button></form>
+                                </form>
+                </div>
         </div>
-    </div> -->
+    {% endblock %}

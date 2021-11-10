@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="{% static 'css/picto-foundry-food.css' %}" />
         <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
         <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
-        <link rel="icon" href="icon/icon.ico" type="{% static 'image/x-icon' %}">
+        <link rel="icon" href="{% static 'images/icon.ico' %}" type="image/x-icon">
     </head>
 
     <body>
@@ -30,7 +30,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a href="#top"><img src="{% static 'images/toplogo.jpg' %}" width="125" height="20" style="height: 30px;width: 100px;margin-top: 10px;"></a>
+                        <a href="{% url 'main:home' %}"><img src="{% static 'images/toplogo.jpg' %}" width="125" height="20" style="height: 30px;width: 100px;margin-top: 10px;"></a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -57,7 +57,7 @@
             <div class="follow_container stagger-item">
                 <div class="col-md-6 col-md-offset-3 stagger-item">
                     <h2 class="top-title stagger-item" style="padding-bottom: 0px; padding-top: 0px; margin-top: -150px;">
-                        <img src="{% static 'images/Neflex.jpg' %}" width="450" height="180"></h2>
+                        <img src="{% static 'images/Neflex.png' %}" width="450" height="180"></h2>
                     <h2 class="white second-title stagger-item" style="padding-top: 50px;">" Find out your favorite movies! "</h2>
                 </div>
             </div>
@@ -73,11 +73,11 @@
                 </div>
                 <div class="col-md-6">
                     <div class="img-section stagger-item" style="height: 410px";>
-                       <img src="" width="240" height="200">
-                       <img src="" width="240" height="200">
+                       <img src="{% static 'images/1.jpg' %}" width="240" height="200">
+                       <img src="{% static 'images/2.jpg' %}" width="240" height="200">
                        <div class="img-section-space"></div>
-                       <img src=""  width="240" height="200">
-                       <img src=""  width="240" height="200">
+                       <img src="{% static 'images/3.jpg' %}"  width="240" height="200">
+                       <img src="{% static 'images/4.jpg' %}"  width="240" height="200">
                    </div>
                 </div>
             </div>
@@ -151,11 +151,10 @@
         <!-- ============ Footer Section  ============= -->
 
         <footer class="sub_footer">
-            <div class="container">
-                <div class="col-md-4"><p class="sub-footer-text text-center">&copy; Ne-Flex</p></div>
-                <div class="col-md-4"><p class="sub-footer-text text-center">Back to <a href="#top">TOP</a></p>
-                </div>
-                <div class="col-md-4"><p class="sub-footer-text text-center">Built With Care By <a href="#" target="_blank">Us</a></p></div>
+            <div class="container" style="margin-left: 150px;">
+                <div class="col-md-4" style="margin-top: 80px;"><p class="sub-footer-text text-center">&copy; Ne-Flex</p></div>
+                <div class="col-md-4" style="margin-top: 80px;"><p class="sub-footer-text text-center">Back to <a href="#top">TOP</a></p></div>
+                <div class="col-md-4" style="margin-top: 80px;"><p class="sub-footer-text text-center">Built With Care By <a href="#" target="_blank">Us</a></p></div>
             </div>
         </footer>
 
