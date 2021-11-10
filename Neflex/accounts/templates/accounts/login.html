@@ -67,7 +67,8 @@
                                                 <br><br>
                                                 <div style="position: absolute; padding-left: 230px;"><button type="submit" class="btn btn-primary" value="Login" style= "margin-bottom: 30px;margin-left: 70px;">Log In</button></div>
                                             </form>
-                                            <a href="http://127.0.0.1:8000/accounts/signup/"><button class="btn btn-primary" style="margin-bottom: 30px;margin-left: 70px;">Join Us!</button></a>
+                                            <form action="{% url 'accounts:signup' %}">
+                                            <button class="btn btn-primary" style="margin-bottom: 30px;margin-left: 70px;">Join Us!</button></form>
                                         </div>
                                     </div>
                             </div>

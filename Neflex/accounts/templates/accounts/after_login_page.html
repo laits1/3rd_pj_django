@@ -41,7 +41,9 @@
                             <li><a class="color_animation" href="#movie_list">Movies for you</a></li>
                             <li><a class="color_animation" href="#Popular">Popular</a></li>
                             <li><a class="color_animation" href="#Coming_Soon">How about these?</a></li>
-                            <li><a class="color_animation" href="http://127.0.0.1:8000">Logout</a></li>
+                            <!-- <form action="{% url 'main:home' %}"> -->
+                            <li><a class="color_animation" href="{% url 'main:home' %}" >Logout</a></li>
+                            <!-- </form> -->
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div>
@@ -85,15 +87,15 @@
                     <div class="text-content container stagger-item">
                         <div class="container stagger-item" style="width: 1830px;display: inline-flex;">
 
-                                {% for movie in movies%}
-                                <p><img src="" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie}}</a></p>
+                                {% for movie in movies3%}
+                                <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
                                 {% endfor %}
                         </div>
 
                         <div class="container stagger-item" style="width: 1830px;display: inline-flex;margin-top: 5%;">
 
-                                {% for movie in movies%}
-                                <p><img src="" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie}}</a></p>
+                                {% for movie in movies4%}
+                                <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
                                 {% endfor %}
                         </div>
                     </div>
@@ -104,23 +106,23 @@
         <section id ="Coming_Soon" class="description_content" style="height: 800px">
             <div  class="Popular background_content stagger-wrapper" style="height: 82px;top: 3%;">
                 <h1 class="stagger-item">Rating</h1>
-                    <div class="text-content container stagger-item">
-                        <div class="container stagger-item" style="width: 1830px;display: inline-flex;">
+                <div class="text-content container stagger-item">
+                    <div class="container stagger-item" style="width: 1830px;display: inline-flex;">
 
-                                {% for movie in movies%}
-                                <p><img src="" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie}}</a></p>
-                                {% endfor %}
-                        </div>
-
-                        <div class="container stagger-item" style="width: 1830px;display: inline-flex;margin-top: 5%;">
-
-                                {% for movie in movies%}
-                                <p><img src="" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie}}</a></p>
-                                {% endfor %}
-                        </div>
+                            {% for movie in movies3%}
+                            <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
+                            {% endfor %}
                     </div>
-            </div>
-        </section>
+
+                    <div class="container stagger-item" style="width: 1830px;display: inline-flex;margin-top: 5%;">
+
+                            {% for movie in movies4%}
+                            <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
+                            {% endfor %}
+                    </div>
+                </div>
+        </div>
+    </section>     
 
         <!-- ============ Footer Section  ============= -->
 

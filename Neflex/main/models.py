@@ -44,3 +44,6 @@ class Director(models.Model):
 class Actor(models.Model):
     Actor_name = models.CharField(max_length=300)
     movies = models.ManyToManyField(Movies)
+
+class Description(models.Model):
+    Description = models.TextField()

@@ -5,10 +5,11 @@ import requests
 from django.contrib.auth import authenticate, get_user_model
 from django.contrib.auth.models import User
 import pandas as pd
-from main.models import Movie_Images
+from main.models import Movie_Images, Movies
 from .forms import CustomCreationForm
+
 from django.contrib import auth
-from . import myfunc
+from . import myfunc, RECO
 import random
 # Create your views here.
 def find_key(dict, val):
@@ -30,6 +31,20 @@ def after_login(request):
     u2 = int(user.like_movie.split(',')[1])
     u3 = int(user.like_movie.split(',')[2])
 
+    ## 세웅님 추천 알고리즘
+
+    u1_title = Movies.objects.get(id=u1).title
+    print("u1타이틀 : ", u1_title)
+    # a = RECO.get_movie_recommendation(u1_title).Title.tolist()
+    # print("a : " , a)
+
+
+
+
+
+
+
+    # 서응님 추천 알고리즘
     movieId = list(myfunc.rec1([u1, u2, u3]).values())
     di= myfunc.rec1([u1, u2, u3])
     movietitle = list(myfunc.rec1([u1, u2, u3]).keys())
@@ -50,18 +65,31 @@ def after_login(request):
     print(recomend)             # 추천결과 영화 번호
     print(movieImage)           # 추천결과 영화 이미지 주소
 
-    # a = DataFrame
-    # a -> json 형식으로 바꿔서
     data = list(zip(randommovietitle, recomend, movieImage))
     df = pd.DataFrame(data, columns = ['title', 'movie_id', 'image'])
     movies = df.to_dict('records')
 
+    
+    # Top
+    TopMovie = ['111161', '68646', '71562', '468569', '50083', '108052', '110912', '60196', '120737', '137523', '109830', '1375666', '167261', 
+    '80684', '133093', '99685', '73486', '114369', '102926', '76759', '816692']
+    RandomTop= random.sample(TopMovie, 8)
 
-    # unerfunc.py  select_maintable 함수에  return에 보면 result.todict 여기에 records 파라미터 // index.html 파일에서 표를 그리는 코드가 있음. 거기서 for하나 넣고 지금 우리코드랑 똑같이사용중.
+    images = []
+    title = []
+    for i in range(len(RandomTop)) :
+        images.append(Movie_Images.objects.get(id=RandomTop[i]).image)
+        title.append(Movies.objects.get(id=RandomTop[i]).title)
+
+    data = list(zip(title, RandomTop, images))
+    df = pd.DataFrame(data, columns = ['title', 'movie_id', 'image'])
+    Topmovies = df.to_dict('records')
 
     context = {
         'movies1': movies[:4],
-        'movies2': movies[4:]
+        'movies2': movies[4:],
+        'movies3': Topmovies[:4],
+        'movies4': Topmovies[4:]
     }
     return render(request, 'accounts/after_login_page.html', context)
 

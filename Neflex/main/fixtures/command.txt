@@ -1,0 +1,11 @@
+python manage.py makemigrations
+python manage.py migrate
+python manage.py loaddata movies.json
+python manage.py loaddata actor.json
+python manage.py loaddata director.json
+python manage.py loaddata genome_tags.json
+python manage.py loaddata links.json
+python manage.py loaddata movie_images.json
+python manage.py loaddata ratings.json
+python manage.py loaddata tags.json
+python manage.py loaddata description.json
