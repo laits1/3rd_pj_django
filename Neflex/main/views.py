@@ -13,7 +13,7 @@ from django.contrib import auth
 # Create your views here.
 from . import movieimage
 import random
-from . import RECO
+# from . import RECO
 
 def select(request):
     if request.method == 'POST':
@@ -38,6 +38,11 @@ def select(request):
     for i in range(len(RandomSelect)) :
         images.append(Movie_Images.objects.get(id=RandomSelect[i]).image)
         title.append(Movies.objects.get(id=RandomSelect[i]).title)
+
+    # 타이틀 제목 25글자 제한
+    for i in range(len(title)) : 
+        if len(title[i]) > 25 :
+            title[i] = title[i][:25] + "..." 
 
     print(images)
     print(title)
@@ -90,6 +95,12 @@ def home(request):
             images.append(Movie_Images.objects.get(id=RandomTop[i]).image)
             title.append(Movies.objects.get(id=RandomTop[i]).title)
 
+        # 타이틀 제목 25글자 제한
+        for i in range(len(title)) : 
+            if len(title[i]) > 25 :
+                title[i] = title[i][:25] + "..." 
+
+
         data = list(zip(title, RandomTop, images))
         df = pd.DataFrame(data, columns = ['title', 'movie_id', 'image'])
         movies = df.to_dict('records')
@@ -107,6 +118,11 @@ def home(request):
             images.append(Movie_Images.objects.get(id=RandomComing[i]).image)
             title.append(Movies.objects.get(id=RandomComing[i]).title)
 
+        # 타이틀 제목 25글자 제한
+        for i in range(len(title)) : 
+            if len(title[i]) > 25 :
+                title[i] = title[i][:25] + "..." 
+
         data = list(zip(title, RandomComing, images))
         df = pd.DataFrame(data, columns = ['title', 'movie_id', 'image'])
 
@@ -123,6 +139,11 @@ def home(request):
         for i in range(len(RandomComing)) :
             images.append(Movie_Images.objects.get(id=RandomComing[i]).image)
             title.append(Movies.objects.get(id=RandomComing[i]).title)
+
+        # 타이틀 제목 25글자 제한
+        for i in range(len(title)) : 
+            if len(title[i]) > 25 :
+                title[i] = title[i][:25] + "..." 
 
         data = list(zip(title, RandomComing, images))
         df = pd.DataFrame(data, columns = ['title', 'movie_id', 'image'])

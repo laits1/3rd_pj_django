@@ -65,6 +65,12 @@ def after_login(request):
     print(recomend)             # 추천결과 영화 번호
     print(movieImage)           # 추천결과 영화 이미지 주소
 
+    # 타이틀 제목 25글자 제한
+    for i in range(len(randommovietitle)) : 
+        if len(randommovietitle[i]) > 25 :
+            randommovietitle[i] = randommovietitle[i][:25] + "..." 
+
+
     data = list(zip(randommovietitle, recomend, movieImage))
     df = pd.DataFrame(data, columns = ['title', 'movie_id', 'image'])
     movies = df.to_dict('records')
@@ -80,6 +86,12 @@ def after_login(request):
     for i in range(len(RandomTop)) :
         images.append(Movie_Images.objects.get(id=RandomTop[i]).image)
         title.append(Movies.objects.get(id=RandomTop[i]).title)
+
+    # 타이틀 제목 25글자 제한
+    for i in range(len(title)) : 
+        if len(title[i]) > 25 :
+            title[i] = title[i][:25] + "..." 
+    
 
     data = list(zip(title, RandomTop, images))
     df = pd.DataFrame(data, columns = ['title', 'movie_id', 'image'])

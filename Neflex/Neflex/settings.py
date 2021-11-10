@@ -25,18 +25,16 @@ SECRET_KEY = 'django-insecure-1@xsn&atk!)v+9uz*1_5dwl*6t2!dl57pl1kao4+03edc68+nz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['.ap-northeast-1.compute.amazonaws.com']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.ap-northeast-1.compute.amazonaws.com']
+# ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    # 앱을 만들면 여기에 무조건 추가를 시켜줘야해
-    # 그래야 장고가 이런 앱이 있구나를 알개 돼
+    
     'main',
     'accounts',
-    # 여기 밑에는 장고가 가지고 있는 기본적인거라 지우면 안되고
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
