@@ -88,12 +88,12 @@
             <div class="movie_list background_content stagger-wrapper" style="height: 82px;">
                <h1 style="padding-top: 15px;">Top movies</h1>
                    <div class="text-content container stagger-item">
-                       <div class="container" style="width: 1830px;display: inline-flex;">
+                       <div class="container" style="width: 1830px;display: inline-flex; justify-content: space-between; text-align: center;">
                                {% for movie in movies1%}
                                <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
                                {% endfor %}
                        </div>
-                       <div class="container stagger-item" style="width: 1830px;display: inline-flex;margin-top: 5%;">
+                       <div class="container stagger-item" style="width: 1830px;display: inline-flex;margin-top: 5%; justify-content: space-between; text-align: center;">
 
                                {% for movie in movies2%}
                                <p><img src="{{movie.image}}" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
@@ -109,12 +109,12 @@
             <div  class="Popular background_content stagger-wrapper" style="height: 82px;">
                 <h1>See what's Popular!</h1>
                 <div class="text-content container stagger-item">
-                        <div class="container" style="width: 1830px;display: inline-flex;">
+                        <div class="container" style="width: 1830px;display: inline-flex; justify-content: space-between; text-align: center;">
                                 {% for movie in movies5%}
                                 <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
                                 {% endfor %}
                         </div>
-                        <div class="container stagger-item" style="width: 1830px;display: inline-flex;margin-top: 5%;">
+                        <div class="container stagger-item" style="width: 1830px;display: inline-flex;margin-top: 5%; justify-content: space-between; text-align: center;">
 
                                 {% for movie in movies6%}
                                 <p><img src="{{movie.image}}" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a
@@ -131,12 +131,12 @@
             <div  class="Coming_Soon background_content stagger-wrapper" style="height: 82px;">
                 <h1>Coming Soon</h1>
                 <div class="text-content container stagger-item">
-                    <div class="container" style="width: 1830px;display: inline-flex;">
+                    <div class="container" style="width: 1830px;display: inline-flex; justify-content: space-between; text-align: center;">
                             {% for movie in movies3%}
                             <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
                             {% endfor %}
                     </div>
-                    <div class="container stagger-item" style="width: 1830px;display: inline-flex;margin-top: 5%;">
+                    <div class="container stagger-item" style="width: 1830px;display: inline-flex;margin-top: 5%; justify-content: space-between; text-align: center;">
 
                             {% for movie in movies4%}
                             <p><img src="{{movie.image}}" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a

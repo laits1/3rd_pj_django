@@ -53,7 +53,7 @@
                 <form action="{% url 'accounts:after_login' %}" method = "POST">
                 <h1 class="stagger-wrapper">Select movie you like</h1>
                     <div class="text-content container stagger-item">
-                        <div class="container stagger-item" style="width: 1830px;display: inline-flex;">
+                        <div class="container stagger-item" style="width: 1830px;display: inline-flex; justify-content: space-between; text-align: center;">
                             {% csrf_token %}
                             {% for movie in movies1 %}
                             <p style="margin-right: 50px"><img src="{{ movie.image }}" width="250" height="220" />
@@ -64,7 +64,7 @@
                         </div>
 
 
-                        <div class="container stagger-item" style="width: 1830px;display: inline-flex;">
+                        <div class="container stagger-item" style="width: 1830px;display: inline-flex; margin-top: 5%;  justify-content: space-between; text-align: center;">
                             {% csrf_token %}
                             {% for movie in movies2 %}
                             <p style="margin-right: 50px"><img src="{{ movie.image }}" width="250" height="220" />
