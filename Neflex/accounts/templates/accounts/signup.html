@@ -44,17 +44,6 @@
     <div class="input-form-backgroud row">
       <div class="input-form col-md-12 mx-auto">
         <h4 class="mb-3">Create your account</h4>
-        <!-- <form class="validation-form" action="{% url 'accounts:signup' %}" method="POST">
-          {% csrf_token %}
-          {{ form.as_p }}
-
-       
-
-
-
-          <div class="mb-4"></div>
-          <a href="http://127.0.0.1:8000/accounts/login/"><button class="btn btn-primary btn-lg btn-block" type="submit">Registration Complete</button></a>
-        </form> -->
 
         <form class="validation-form" action="{% url 'accounts:signup' %}" method="POST">
           {% csrf_token %}
@@ -76,7 +65,7 @@
               패스워드를 입력해주세요.
             </div>
           </div>
-          <button class="btn btn-primary btn-lg btn-block" type="submit">Registration Complete</button>
+          <button class="btn btn-danger btn-lg btn-block" type="submit">Registration Complete</button>
           </form>
 
 

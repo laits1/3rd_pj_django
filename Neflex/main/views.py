@@ -13,6 +13,7 @@ from django.contrib import auth
 # Create your views here.
 from django.contrib import messages
 import random
+from main.models import Movie_Images, Movies, Emotion, Description,Introduction
 # from . import RECO
 # from ..accounts import RECO
 
@@ -58,8 +59,9 @@ def select(request):
 
     context = {
         # 'image': image,
-        'movies1': movies[:6],
-        'movies2': movies[6:]
+        'movies1': movies[:4],
+        'movies2': movies[4:8],
+        'movies3': movies[8:]
     }
     
 
@@ -178,23 +180,19 @@ def home(request):
 #     return render(request, 'main/about.html')
 
 
-# def movie(request, movie_id):
+def moviepage(request, movie_id):
 
-#     url = get('https://www.imdb.com/title/tt2382320/')
-#     req = url.text
-#     soup_data = Soup(req, 'html.parser')
-#     movies = soup_data.findAll('div', {'class' : 'ipc-poster ipc-poster--baseAlt ipc-poster--dynamic-width Poster__CelPoster-sc-6zpm25-0 kPdBKI celwidget ipc-sub-grid-item ipc-sub-grid-item--span-2'})
-#     movie_id = 2382320
-#     # movie_df = pd.read_csv("movies.csv")
-   
 
-#     title =  soup_data.findAll('div', {'class' : 'TitleBlock__SeriesParentLinkWrapper-sc-1nlhx7j-3 itQvtY'})
-#     movie_title = "007 노 타임 투 다이"
-#     # movie_title = movie_df.loc[movie_df["imdb_movie_Id"] == movie_id, "title"]
-#     image = movies[0].div.img['srcset'].split(',')[-4]
-#     context = {
-#         'image': image,
-#         'movie_id': movie_id,
-#         'movie_title' : movie_title
-#     }
-#     return render(request, 'main/movie.html', context=context)
+    movie = Movies.objects.get(id=movie_id)
+    image = Movie_Images.objects.get(id=movie_id)
+    description = Description.objects.get(id=movie_id)
+    introduction = Introduction.objects.get(id=movie_id)
+ 
+
+    context = {
+        'movie': movie,
+        'image': image,
+        'description' : description,
+        'introduction' : introduction
+    }
+    return render(request, 'main/moviepage.html', context)

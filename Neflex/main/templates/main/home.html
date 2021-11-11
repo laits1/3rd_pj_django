@@ -69,7 +69,8 @@
             <div class="text-content about_us_photo stagger-wrapper" style="height: 802px;">
                 <div class="mt-5 col-md-6 stagger-item">
                     <h1 style="padding-right: 0px; padding-left: 55px; margin-left: 250px;">About us</h1>
-                    <p class="mt-5 desc-text stagger-item" style="margin-left: 250px;"> Welcome to Your-Flex! We are to find your favorite movies. </p>
+                    <p class="mt-5 desc-text stagger-item" style="margin-left: 250px;"> Welcome to Ne-Flex!</p> 
+                    <p class="mt-5 desc-text stagger-item" style="margin-left: 250px;"> We are here to find your favorite movies. </p>
                 </div>
                 <div class="col-md-6">
                     <div class="img-section stagger-item" style="height: 410px";>
@@ -90,13 +91,13 @@
                    <div class="text-content container stagger-item">
                        <div class="container" style="width: 1830px;display: inline-flex; justify-content: space-between; text-align: center;">
                                {% for movie in movies1%}
-                               <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
+                               <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="{% url 'main:moviepage' movie.movie_id %}">{{movie.title}}</a></p>
                                {% endfor %}
                        </div>
                        <div class="container stagger-item" style="width: 1830px;display: inline-flex;margin-top: 5%; justify-content: space-between; text-align: center;">
 
                                {% for movie in movies2%}
-                               <p><img src="{{movie.image}}" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
+                               <p><img src="{{movie.image}}" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="{% url 'main:moviepage' movie.movie_id %}">{{movie.title}}</a></p>
                                {% endfor %}
                        </div>
                    </div>
@@ -106,19 +107,19 @@
 
         <!-- ============ Popular ============= -->
         <section id ="Popular" class="description_content" style="height: 800px">
-            <div  class="Popular background_content stagger-wrapper" style="height: 82px;">
+            <div  class="movie_list background_content stagger-wrapper" style="height: 82px;">
                 <h1>See what's Popular!</h1>
                 <div class="text-content container stagger-item">
                         <div class="container" style="width: 1830px;display: inline-flex; justify-content: space-between; text-align: center;">
                                 {% for movie in movies5%}
-                                <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
+                                <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="{% url 'main:moviepage' movie.movie_id %}">{{movie.title}}</a></p>
                                 {% endfor %}
                         </div>
                         <div class="container stagger-item" style="width: 1830px;display: inline-flex;margin-top: 5%; justify-content: space-between; text-align: center;">
 
                                 {% for movie in movies6%}
                                 <p><img src="{{movie.image}}" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a
-                                        href="">{{movie.title}}</a></p>
+                                        href="{% url 'main:moviepage' movie.movie_id %}">{{movie.title}}</a></p>
                                 {% endfor %}
                         </div>
                     </div>
@@ -128,19 +129,19 @@
    
         <!-- ============ Coming Soon  ============= -->
         <section id ="Coming_Soon" class="description_content" style="height: 800px">
-            <div  class="Coming_Soon background_content stagger-wrapper" style="height: 82px;">
+            <div  class="movie_list background_content stagger-wrapper" style="height: 82px;">
                 <h1>Coming Soon</h1>
                 <div class="text-content container stagger-item">
                     <div class="container" style="width: 1830px;display: inline-flex; justify-content: space-between; text-align: center;">
                             {% for movie in movies3%}
-                            <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
+                            <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="{% url 'main:moviepage' movie.movie_id %}">{{movie.title}}</a></p>
                             {% endfor %}
                     </div>
                     <div class="container stagger-item" style="width: 1830px;display: inline-flex;margin-top: 5%; justify-content: space-between; text-align: center;">
 
                             {% for movie in movies4%}
                             <p><img src="{{movie.image}}" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a
-                                    href="">{{movie.title}}</a></p>
+                                    href="{% url 'main:moviepage' movie.movie_id %}">{{movie.title}}</a></p>
                             {% endfor %}
                     </div>
                 </div>

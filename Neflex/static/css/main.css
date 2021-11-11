@@ -270,11 +270,19 @@ INTRO CONTAINER
 }
 
 .movie_list.background_content{
-    background: url('../images/film.jpg') no-repeat center center;
+    background: url('../images/background1.jpg') no-repeat center center;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
+.afterlogin.background_content{
+    background: url('../images/background2.jpg') no-repeat center center;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
 .Popular.background_content{
     background: url('../images/film.jpg') no-repeat center center;
     background-size: cover;

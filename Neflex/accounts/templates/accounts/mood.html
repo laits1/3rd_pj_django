@@ -51,7 +51,7 @@
         <section id ="Popular" class="description_content" style="height: 1000px">
             <div  class="movie_list background_content" style="height: 140px;margin-top: 25px;">
                 <form action="{% url 'accounts:mood' %}" method = "POST">{% csrf_token %}
-                <h1 class="stagger-wrapper" style="width: 350px;">Just Choose! Change Your mood</h1>
+                <h1 class="stagger-wrapper" style="width: 350px;margin-top: 20px;">Just Choose! Change Your mood</h1>
                     <div class="text-content container stagger-item">
                         <div class="container stagger-item" style="width: 1830px;display: inline-flex;">
                             <p style="margin-right : 100px; text-align: center;"><img src="{% static 'images/Happy.jpg' %}" width="250" height="220" />
@@ -63,22 +63,18 @@
                             <p style="margin-right : 100px; text-align: center;"><img src="{% static 'images/Angry.jpg' %}" width="250" height="220" />
                             <br><br>
                             <input type="radio" name="mood" value="angry"> ANGRY</p>
-
-                        </div>
-                    </div>
-                    <div class="text-content container stagger-item">
-                            <div class="container stagger-item" style="width: 1830px;display: inline-flex;">
-                                <p style="margin-left : 180px; text-align: center;"><img src="{% static 'images/Fear.jpg' %}" width="250" height="220" />
+                            <p style="margin-right : 100px; text-align: center;"><img src="{% static 'images/Fear.jpg' %}" width="250" height="220" />
                             <br><br>
                             <input type="radio" name="mood" value="fear"> FEAR</p>
-                                <p style="margin-left : 120px; text-align: center;"><img src="{% static 'images/Surprise.jpg' %}" width="250" height="220" />
+                            <p style="margin-right : 100px; text-align: center;"><img src="{% static 'images/Surprise.jpg' %}" width="250" height="220" />
                             <br><br>
                             <input type="radio" name="mood" value="surprise"> SURPRISE</p>
-                            </div>
+                        </div>
                     </div>
+                    
                     <div class="text-content container stagger-item">
                         <div class="container stagger-item" style="width: 1830px;display: inline-flex;">
-                            <button class="btn btn-primary">Submit</button>
+                            <button class="btn btn-danger">Submit</button>
                         </div>
                     </div>
                 </form>

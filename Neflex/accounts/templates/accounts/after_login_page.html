@@ -37,11 +37,11 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav main-nav  clear navbar-right ">
-                            <li><a class="navactive color_animation" href="#top">WELCOME</a></li>
-                            <li><a class="color_animation" href="#movie_list">Movies for you</a></li>
-                            <li><a class="color_animation" href="#Popular">Popular</a></li>
-                            <li><a class="color_animation" href="#Coming_Soon">How about these?</a></li>
-                            <li><a class="color_animation" href="{% url 'accounts:mood' %}">mood</a></li>
+                            <!-- <li><a class="navactive color_animation" href="#top">WELCOME</a></li> -->
+                            <li><a class="color_animation" href="#movie_list">Genres</a></li>
+                            <li><a class="color_animation" href="#Popular">Similar Movies</a></li>
+                            <li><a class="color_animation" href="#Coming_Soon">Top Rating</a></li>
+                            <li><a class="color_animation" href="{% url 'accounts:mood' %}">♡mood♡</a></li>
                             <!-- <form action="{% url 'main:home' %}"> -->
                             <li><a class="color_animation" href="{% url 'main:home' %}" >Logout</a></li>
                             <!-- </form> -->
@@ -51,16 +51,16 @@
             </div><!-- /.container-fluid -->
         </nav>
 
-       <!-- ============ Top movies  ============= -->
+       <!-- ============ Top movies  ============= 서응--> 
        <section id ="movie_list" class="description_content" style="height: 800px">
-        <div  class="movie_list background_content stagger-wrapper" style="height: 82px;top: 6%;">
-            <h1 class="stagger-item">Genres</h1>
+        <div  class="afterlogin background_content stagger-wrapper" style="height: 82px;top: 6%;">
+            <h1 class="stagger-item">based on genres you watched (컨텐츠기반)</h1>
                 <div class="text-content container stagger-wrapper">
                     <div class="container stagger-item" style="width: 1430px;display: inline-flex; justify-content: space-between; text-align: center;">
 
                         {% for movie in movies1%}
                         <p><img src="{{ movie.image }}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br>
-                            <a href="">{{movie.title}}</a></p>
+                            <a href="{% url 'main:moviepage' movie.movie_id %}">{{movie.title}}</a></p>
                         {% endfor %}
                     </div>
 
@@ -68,7 +68,7 @@
 
                         {% for movie in movies2%}
                         <p><img src="{{ movie.image }}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br>
-                            <a href="">{{movie.title}}</a></p>
+                            <a href="{% url 'main:moviepage' movie.movie_id %}">{{movie.title}}</a></p>
                         {% endfor %}
                     </div>
 
@@ -83,22 +83,22 @@
     </section>
 
 
-          <!-- ============ Popular ============= -->
+          <!-- ============ Popular ============= 세웅-->
           <section id ="Popular" class="description_content" style="height: 800px">
-            <div  class="Popular background_content stagger-wrapper" style="height: 82px;top: 3%;">
-                <h1 class="stagger-item">Item</h1>
+            <div  class="afterlogin background_content stagger-wrapper" style="height: 82px;top: 3%;">
+                <h1 class="stagger-item">you’ll like these movies (아이템기반)</h1>
                     <div class="text-content container stagger-item">
                         <div class="container stagger-item" style="width: 1430px;display: inline-flex; justify-content: space-between; text-align: center;">
 
-                                {% for movie in movies3%}
-                                <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
+                                {% for movie in movies5%}
+                                <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="{% url 'main:moviepage' movie.movie_id %}">{{movie.title}}</a></p>
                                 {% endfor %}
                         </div>
 
                         <div class="container stagger-item" style="width: 1430px;display: inline-flex;margin-top: 5%; justify-content: space-between; text-align: center;">
 
-                                {% for movie in movies4%}
-                                <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
+                                {% for movie in movies6%}
+                                <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="{% url 'main:moviepage' movie.movie_id %}">{{movie.title}}</a></p>
                                 {% endfor %}
                         </div>
                     </div>
@@ -107,20 +107,20 @@
 
         <!-- ============ Coming Soon  ============= -->
         <section id ="Coming_Soon" class="description_content" style="height: 800px">
-            <div  class="Popular background_content stagger-wrapper" style="height: 82px;top: 3%;">
-                <h1 class="stagger-item">Rating</h1>
+            <div  class="afterlogin background_content stagger-wrapper" style="height: 82px;top: 3%;">
+                <h1 class="stagger-item">Top Rating</h1>
                 <div class="text-content container stagger-item">
                     <div class="container stagger-item" style="width: 1430px;display: inline-flex; justify-content: space-between; text-align: center;">
 
                             {% for movie in movies3%}
-                            <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
+                            <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="{% url 'main:moviepage' movie.movie_id %}">{{movie.title}}</a></p>
                             {% endfor %}
                     </div>
 
                     <div class="container stagger-item" style="width: 1430px;display: inline-flex;margin-top: 5%; justify-content: space-between; text-align: center;">
 
                             {% for movie in movies4%}
-                            <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
+                            <p><img src="{{movie.image}}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="{% url 'main:moviepage' movie.movie_id %}">{{movie.title}}</a></p>
                             {% endfor %}
                     </div>
                 </div>

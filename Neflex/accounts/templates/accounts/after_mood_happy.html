@@ -53,14 +53,14 @@
                         <div class="container stagger-item" style="width: 1830px;display: inline-flex;justify-content: space-between;text-align: center;">
 
                             {% for movie in movies1%}
-                            <p><img src="{{ movie.image }}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
+                            <p><img src="{{ movie.image }}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="{% url 'main:moviepage' movie.movie_id %}">{{movie.title}}</a></p>
                             {% endfor %}
                         </div>
     
                         <div class="container stagger-item" style="width: 1830px;display:inline-flex;margin-top: 5%; justify-content: space-between; text-align: center; ">
     
                             {% for movie in movies2%}
-                            <p><img src="{{ movie.image }}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="">{{movie.title}}</a></p>
+                            <p><img src="{{ movie.image }}" class="stagger-item" width="250" height="220" style="margin-right: 10px;margin-bottom: 10px;"><br><a href="{% url 'main:moviepage' movie.movie_id %}">{{movie.title}}</a></p>
                             {% endfor %}
                         </div>
     

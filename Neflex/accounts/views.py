@@ -6,7 +6,8 @@ from django.contrib.auth import authenticate, get_user_model
 from django.contrib.auth.models import User
 import pandas as pd
 
-from main.models import Movie_Images, Movies, Emotion
+
+from main.models import Movie_Images, Movies, Emotion, Description,Introduction
 from .forms import CustomCreationForm
 
 from django.contrib import auth
@@ -34,10 +35,44 @@ def after_login(request):
 
     ## 세웅님 추천 알고리즘
 
-    u1_title = Movies.objects.get(id=u1).title
-    print("u1타이틀 : ", u1_title)
-    # a = RECO.get_movie_recommendation(u1_title).Title.tolist()
-    # print("a : " , a)
+    # u1_title = Movies.objects.get(id=u1).title
+
+    u1_name = RECO.movieID_to_Title(u1)
+    u2_name = RECO.movieID_to_Title(u2)
+    u3_name = RECO.movieID_to_Title(u3)
+    # print("u1 타이틀 : ",u1_name)
+    # print("u2 타이틀 : ",u2_name)
+    # print("u3 타이틀 : ",u3_name)
+    
+    # print("u1 추천영화 : ", RECO.get_movie_recommendation(u1_name)['Title'].tolist())
+    u1_rec_title = RECO.get_movie_recommendation(u1_name)['Title'].tolist()
+    u2_rec_title = RECO.get_movie_recommendation(u2_name)['Title'].tolist()
+    u3_rec_title = RECO.get_movie_recommendation(u3_name)['Title'].tolist()
+    
+    rec_title = u1_rec_title + u2_rec_title + u3_rec_title 
+    rec_title_random = random.sample(rec_title, 8)
+
+    rec_title_id = []
+    movieImage = []
+    for i in range(len(rec_title_random)) :
+        rec_title_id.append(Movie_Images.objects.get(title=rec_title_random[i]).id)
+        
+
+    
+
+    for i in range(len(rec_title_random)) :
+        movieImage.append(Movie_Images.objects.get(id=rec_title_id[i]).image)
+        
+
+    # 타이틀 제목 25글자 제한
+    for i in range(len(rec_title_random)) : 
+        if len(rec_title_random[i]) > 25 :
+            rec_title_random[i] = rec_title_random[i][:25] + "..." 
+
+
+    data = list(zip(rec_title_random, rec_title_id, movieImage))
+    df = pd.DataFrame(data, columns = ['title', 'movie_id', 'image'])
+    moviesM = df.to_dict('records')
 
 
 
@@ -102,7 +137,9 @@ def after_login(request):
         'movies1': movies[:4],
         'movies2': movies[4:],
         'movies3': Topmovies[:4],
-        'movies4': Topmovies[4:]
+        'movies4': Topmovies[4:],
+        'movies5': moviesM[:4],     # 세웅님 알고리즘
+        'movies6': moviesM[4:]
     }
     return render(request, 'accounts/after_login_page.html', context)
 
@@ -203,7 +240,7 @@ def mood(request):
                 if len(title[i]) > 25 :
                     title[i] = title[i][:25] + "..." 
 
-            data = list(zip(title, movie_id, images))
+            data = list(zip(title, Random_movie_id, images))
             df = pd.DataFrame(data, columns = ['title', 'movie_id', 'image'])
             movies = df.to_dict('records')
 
@@ -232,7 +269,7 @@ def mood(request):
                 if len(title[i]) > 25 :
                     title[i] = title[i][:25] + "..." 
 
-            data = list(zip(title, movie_id, images))
+            data = list(zip(title, Random_movie_id, images))
             df = pd.DataFrame(data, columns = ['title', 'movie_id', 'image'])
             movies = df.to_dict('records')
 
@@ -261,7 +298,7 @@ def mood(request):
                 if len(title[i]) > 25 :
                     title[i] = title[i][:25] + "..." 
 
-            data = list(zip(title, movie_id, images))
+            data = list(zip(title, Random_movie_id, images))
             df = pd.DataFrame(data, columns = ['title', 'movie_id', 'image'])
             movies = df.to_dict('records')
 
@@ -290,7 +327,7 @@ def mood(request):
                 if len(title[i]) > 25 :
                     title[i] = title[i][:25] + "..." 
 
-            data = list(zip(title, movie_id, images))
+            data = list(zip(title, Random_movie_id, images))
             df = pd.DataFrame(data, columns = ['title', 'movie_id', 'image'])
             movies = df.to_dict('records')
 
@@ -320,7 +357,7 @@ def mood(request):
                 if len(title[i]) > 25 :
                     title[i] = title[i][:25] + "..." 
 
-            data = list(zip(title, movie_id, images))
+            data = list(zip(title, Random_movie_id, images))
             df = pd.DataFrame(data, columns = ['title', 'movie_id', 'image'])
             movies = df.to_dict('records')
 
@@ -337,5 +374,3 @@ def mood(request):
 
 
 
-def moviepage(request):
-    return render(request, 'accounts/moviepage.html')
